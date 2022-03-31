@@ -10,6 +10,7 @@ const Home=()=>{
         navigate.push("localhost:3000/login/patient")
     }
     return(
+        <div>
         <div className='body'>
             <div class="row featurette container-fluid pt-3 pb-4">
                 <div class="col-md-7 d-flex justify-content-center align-items-center">
@@ -19,12 +20,18 @@ const Home=()=>{
                     <a href='/' className='btn btn-danger rounded-pill px-4 mb-3'>Book LabTest</a>
                    </div> 
                 </div>
-                <div class="col-md-5 ">
+                <div class="col-md-5  ">
                     <img src="onlinehospital.jpg" alt="" width="100%" height="auto"/>
                 </div>
             </div>
+            </div>
+            <div>
+                <Footer/>
+            </div>
+    </div>
         
-        </div>
+        
+        
    )
 }
 export default Home;

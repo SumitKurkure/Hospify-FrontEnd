@@ -3,7 +3,7 @@ import React from 'react';
 
 const Contact=()=>{
     return(
-        <div className=' container' style={{height :"500px"}} >
+        <div className=' container' style={{height :"450px"}} >
             <form className= ' d-flex flex-column justify-content-center align-items-center shadow' >
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Email address</label>
