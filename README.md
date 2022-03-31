@@ -9,3 +9,6 @@ We use technology like react js and spring boot rest .
 We use react js as Frontend Technology with Bootstrap-5 for designing 
 
 And for backend will devloping in java language with SpringBoot Framework with Rest API Technology
+
+Using MySQL Database for Maintaining Data of the Patient,Doctor,Hospital ,etc 
+
