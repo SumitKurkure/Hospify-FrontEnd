@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './LoginPatient.css'
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login =( )=>{
 
@@ -10,8 +11,12 @@ const Login =( )=>{
 
 const handleSubmit=(e)=>{
   e.preventDefault();
-  navigate("/dashboard")
-  // <Link type="submit" class="btn btn-primary rounded-pill mb-3  w-75" to='/dashboard'>Login</Link>
+  console.log("login fired");
+  if(patientLogin.username && patientLogin.password)
+  {
+    axios.post("http://localhost:8080/patient/login",{username : patientLogin.username ,password : patientLogin.password});
+    navigate("/dashboard")
+  }
 
 }
 const handleInput=(e)=>{
