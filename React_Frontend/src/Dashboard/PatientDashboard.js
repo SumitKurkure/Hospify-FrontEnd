@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink,Link } from 'react-router-dom';
-import './Dashboard.css'
+import './PatientDashboard.css'
 
-function Dashboard()
+function PatientDashboard()
 {
     return(
         <div>
@@ -198,4 +198,4 @@ function Dashboard()
         </div>
     )
 }
-export default Dashboard;
+export default PatientDashboard;

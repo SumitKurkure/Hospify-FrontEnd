@@ -1,7 +1,7 @@
 
 import Home from './Homepage/Home';
 import Login from './Login/LoginPatient';
-import Register from './Register/Register';
+import Register from './Register/RegisterPatient';
 import {BrowserRouter as Router } from 'react-router-dom'
 import {Route} from 'react-router-dom'
 import {Routes} from 'react-router-dom'
@@ -10,7 +10,8 @@ import Contact from './Pages/Contact';
 import Help from './Pages/Help';
 import Navbar from './Homepage/Navbar';
 import NotFound from './Pages/NotFound';
-import Dashboard from './Dashboard/Dashboard';
+import LoginPatient from './Login/LoginPatient';
+import PatientDashboard from './Dashboard/PatientDashboard';
 function App() 
 {
   return (
@@ -25,7 +26,7 @@ function App()
            <Route exact path='/login/doctor' element={<Login/>}></Route>
            <Route exact path='/login/patient' element={<Login/>}></Route>
            
-            <Route exact path='/dashboard' element={<Dashboard/>}></Route>
+            <Route exact path="/dashboard/:username" element={<PatientDashboard/>}></Route>
 
            <Route exact path='/register/patient' element={<Register/>}></Route>
            <Route exact path='/register/doctor' element={<Register/>}></Route>

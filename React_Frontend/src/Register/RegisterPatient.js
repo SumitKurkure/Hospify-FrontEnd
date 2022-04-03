@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
-import './register.css'
+import './RegisterPatient.css'
 
-const Register=()=>{
+const RegisterPatient=()=>{
     const initialValues = {name:"", username: "", email: "", password: "",mobno:"",address:"",city:"",pincode:"" ,bloodgroup:"",age:"",gender:""};
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -136,4 +136,4 @@ const Register=()=>{
         </div>
     )
 }
-export default Register;
+export default RegisterPatient;
