@@ -1,21 +1,47 @@
 import React, { useState,useEffect } from 'react';
 import './RegisterPatient.css'
-
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 const RegisterPatient=()=>{
-    const initialValues = {name:"", username: "", email: "", password: "",mobno:"",address:"",city:"",pincode:"" ,bloodgroup:"",age:"",gender:""};
+    const initialValues = {name:"", username: "", email: "", password: "",mobno:"",address:"",bloodgroup:"",age:"",gender:""};
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-  
+    const navigate = useNavigate();
+
+    var Message ="";
+
     const handleInput = (e) => {
       const { name, value } = e.target;
       setFormValues({ ...formValues, [name]: value });
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
       e.preventDefault();
       setFormErrors(validate(formValues));
       setIsSubmit(true);
+
+        const registerPatient = {
+            name : formValues.name, username: formValues.username, email: formValues.email, password: formValues.password,mobno: formValues.mobno, address:formValues.address, bloodgroup:formValues.bloodgroup,age:formValues.age,gender:formValues.gender
+        };
+      await axios.post("http://localhost:8080/register/patient",registerPatient).then((response)=>{
+          console.log(response.data);
+          if(response.data === "success")
+          {
+              // console.log("regiseration successfull please login")
+            //  naviagte("/login/patient")
+             Message ="Registeration Successfull Please Login to Acess";
+
+          }
+          else
+          {
+
+          }
+      }).catch((err)=>{
+            console.log(err.response);
+      })
+    
+
     };
   
     useEffect(() => {
@@ -24,6 +50,7 @@ const RegisterPatient=()=>{
         console.log(formValues);
       }
     }, [formErrors]);
+
     const validate = (values) => {
       const errors = {};
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -53,10 +80,6 @@ const RegisterPatient=()=>{
       {
           errors.mobno="mobile no. must be 10 digit "
       }
-      if(!values.city)
-      {
-          errors.city="city is required"
-      }
       if(!values.age)
       {
           errors.age="age is required"
@@ -68,6 +91,7 @@ const RegisterPatient=()=>{
     };
     return(
         <div className='container-fluid d-flex justify-content-center mt-5 ' >
+            <span>{Message}</span>
            <form className=" d-flex flex-column justify-content-center align-items-center border-primary shadow p-4 mb-5 form" onSubmit={handleSubmit} >
                <div className='d-flex mb-4'>
                 <div className='me-3'>
@@ -93,7 +117,7 @@ const RegisterPatient=()=>{
                     <small>{formErrors.email}</small>
                     <div className="mb-1">
                         <label htmlFor="mobno" className="form-label">Mobile No*</label>
-                        <input type="tel" className="form-control"  name='mobno' placeholder='Enter the MobileNo'  onChange={handleInput}/>
+                        <input type="number" className="form-control"  name='mobno' placeholder='Enter the MobileNo'  onChange={handleInput}/>
                     </div>
                     <small>{formErrors.mobno}</small>
                     <div className="mb-1">
@@ -102,28 +126,20 @@ const RegisterPatient=()=>{
                     </div>
                 </div>
                 <div className='w-50 '>
-                    <div className="mb-1">
-                        <label htmlFor="city" className="form-label">City*</label>
-                        <input type="text" className="form-control"  name='city' placeholder='Enter the City' onChange={handleInput}/>
-                    </div>
-                    <small>{formErrors.city}</small>
-                    <div className="mb-1">
-                        <label htmlFor="pincode" className="form-label">Pincode</label>
-                        <input type="tel" className="form-control"  name='pincode'  placeholder='Enter the Pincode' onChange={handleInput}/>
-                    </div>
+
                     <div className="mb-1">
                         <label htmlFor="bloodgrp" className="form-label">Blood Group</label>
                         <input type="text" className="form-control"  name='bloodgroup' placeholder='Enter the Blood-Group' onChange={handleInput}/>
                     </div>
                     <div className="mb-1">
                         <label htmlFor="age" className="form-label">Age*</label>
-                        <input type="tel" className="form-control"  name='age' placeholder='Enter the Age' onChange={handleInput}/>
+                        <input type="number" className="form-control"  name='age' placeholder='Enter the Age' onChange={handleInput}/>
                     </div>
                     <small>{formErrors.age}</small>
                     <div className="mb-1">
                         <label htmlFor="gender" className="form-label" >gender*</label><br />
-                        <input type="radio"   name='gender' value="male"/>Male <br />
-                        <input type="radio"   name='gender' value="female"/>Female
+                        <input type="radio"   name='gender' value="male" onChange={handleInput} />Male <br />
+                        <input type="radio"   name='gender' value="female" onChange={handleInput} />Female
                     </div>
                     <small>{formErrors.gender}</small>
                 </div> 

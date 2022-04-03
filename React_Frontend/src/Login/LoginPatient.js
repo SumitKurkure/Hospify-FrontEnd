@@ -9,10 +9,10 @@ const LoginPatient =( )=>{
   // const [error,setError] = useState('');
        const navigate = useNavigate();
 
- const handleSubmit=(e)=>{
+ const handleSubmit=async (e)=>{
   e.preventDefault();
   
-    axios.post("http://localhost:8080/login/patient",{
+    await axios.post("http://localhost:8080/login/patient",{
       username : patientLogin.username , 
       password : patientLogin.password,
     }).then( (response)=>{
@@ -28,6 +28,7 @@ const LoginPatient =( )=>{
     else{
       setPatientLogin({username: '', password: '' });
       // setError('invalid Username and Password');
+    
     }
   }).catch((err)=>{
     console.log(err.response);
