@@ -8,7 +8,7 @@ import {Routes} from 'react-router-dom'
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Help from './Pages/Help';
-import Navbar from './Homepage/Navbar';
+import Navbar from './Homepage/Navbar/Navbar';
 import NotFound from './Pages/NotFound';
 import LoginPatient from './Login/LoginPatient';
 import PatientDashboard from './Dashboard/PatientDashboard';

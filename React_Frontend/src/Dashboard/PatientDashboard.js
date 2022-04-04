@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink,Link } from 'react-router-dom';
 import './PatientDashboard.css'
 
 function PatientDashboard()
 {
+    
+    const logout=()=>{
+
+    }
+
     return(
         <div>
             <div class="d-flex" id="wrapper">
@@ -23,7 +28,7 @@ function PatientDashboard()
                         class="fas fa-paperclip me-2"></i>Buy Medicine</Link>
                  <Link to="/feedback" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-map-marker-alt me-2"></i>FeedBack</Link>
-                <Link to="/logout" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
+                <Link to="/login" class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={logout}><i
                         class="fas fa-power-off me-2"></i>Logout</Link>
             </div>
         </div>

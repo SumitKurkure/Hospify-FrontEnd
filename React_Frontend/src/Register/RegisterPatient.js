@@ -7,6 +7,7 @@ const RegisterPatient=()=>{
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+
     const navigate = useNavigate();
 
     var Message ="";
@@ -91,7 +92,7 @@ const RegisterPatient=()=>{
     };
     return(
         <div className='container-fluid d-flex justify-content-center mt-5 ' >
-            <span>{Message}</span>
+            <span>`${Message}`</span>
            <form className=" d-flex flex-column justify-content-center align-items-center border-primary shadow p-4 mb-5 form" onSubmit={handleSubmit} >
                <div className='d-flex mb-4'>
                 <div className='me-3'>
