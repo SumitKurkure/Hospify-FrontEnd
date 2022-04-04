@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import { NavLink,Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink,Link,useNavigate } from 'react-router-dom';
+import Authenticate from '../Login/Authenticate';
+import LoginPatient from '../Login/LoginPatient';
 import './PatientDashboard.css'
 
 function PatientDashboard()
 {
-    
-    const logout=()=>{
+    // const navigate =useNavigate();
+        //  let result = Authenticate.isUserLoggedIn();
+        // if(result)
+        // {
+        //  navigate("/dashboard/patient/:username");
+        // }
+        // else
+        // navigate("/login/patient");
 
-    }
 
     return(
         <div>
@@ -28,7 +35,7 @@ function PatientDashboard()
                         class="fas fa-paperclip me-2"></i>Buy Medicine</Link>
                  <Link to="/feedback" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-map-marker-alt me-2"></i>FeedBack</Link>
-                <Link to="/login" class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={logout}><i
+                <Link to="/login/patient" class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={Authenticate.logout}><i
                         class="fas fa-power-off me-2"></i>Logout</Link>
             </div>
         </div>
@@ -51,7 +58,7 @@ function PatientDashboard()
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>John Doe
+                                <i class="fas fa-user me-2"></i>{LoginPatient.username}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>

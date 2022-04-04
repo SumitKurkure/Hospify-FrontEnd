@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import './LoginPatient.css'
+import './LoginDoctor.css'
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
-import PatientDashboard from '../Dashboard/PatientDashboard';
-import Authenticate from './Authenticate';
 
-const LoginPatient =()=>{
+const LoginDoctor =( )=>{
   
-  const [patientLogin,setPatientLogin] = useState({username: "", password :""});
+  const [doctorLogin,setDoctorLogin] = useState({username: "", password :""});
+  // const [error,setError] = useState('');
        const navigate = useNavigate();
 
 
@@ -15,23 +14,23 @@ const LoginPatient =()=>{
  const handleSubmit=async (e)=>{
   e.preventDefault();
   
-    await axios.post("http://localhost:8080/login/patient",{
-      username : patientLogin.username , 
-      password : patientLogin.password,
+    await axios.post("http://localhost:8080/login/doctor",{
+      username : doctorLogin.username , 
+      password : doctorLogin.password,
     }).then( (response)=>{
     console.log(response.data);
 
     if(response.data === "valid")
     {
+    //   sessionStorage.setItem("login-info",JSON.stringify(doctorLogin.username));
+      // window.location=`/dashboard/${doctorLogin.username}`;
+      setDoctorLogin({username : '',password : ''})
+      navigate(`/dashboard/doctor/${doctorLogin.username}`);
       
-      // window.location=`/dashboard/${patientLogin.username}`;
-      setPatientLogin({username : '',password : ''})
-      navigate(`/dashboard/patient/${patientLogin.username}`);
-      Authenticate.loggedIn(patientLogin.username);
       
     }
     else{
-      setPatientLogin({username: '', password: '' });
+      setDoctorLogin({username: '', password: '' });
       // setError('invalid Username and Password');
     
     }
@@ -44,7 +43,7 @@ const LoginPatient =()=>{
 const handleInput=(e)=>{
   var name = e.target.name;
   var value = e.target.value;
-  setPatientLogin({...patientLogin,[name] : value})
+  setDoctorLogin({...doctorLogin,[name] : value})
 
 }
 
@@ -70,4 +69,4 @@ const handleInput=(e)=>{
         </div>
     )
 }
-export default LoginPatient;
+export default LoginDoctor;

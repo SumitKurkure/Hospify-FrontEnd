@@ -1,6 +1,5 @@
 
 import Home from './Homepage/Home';
-import Login from './Login/LoginPatient';
 import Register from './Register/RegisterPatient';
 import {BrowserRouter as Router } from 'react-router-dom'
 import {Route} from 'react-router-dom'
@@ -11,9 +10,16 @@ import Help from './Pages/Help';
 import Navbar from './Homepage/Navbar/Navbar';
 import NotFound from './Pages/NotFound';
 import LoginPatient from './Login/LoginPatient';
+import LoginDoctor from './Login/LoginDoctor';
 import PatientDashboard from './Dashboard/PatientDashboard';
+import DoctorDashboard from './Dashboard/DoctorDashboard';
+import RegisterDoctor from './Register/RegisterDoctor';
+import RegisterPatient from './Register/RegisterPatient';
+import Authenticate from './Login/Authenticate';
+// import  { useNavigate } from 'react-router-dom'
 function App() 
 {
+  // const navigate = useNavigate();
   return (
     <div>
       <Router>
@@ -22,14 +28,19 @@ function App()
         <Routes>
           <Route  path='/' element={<Home/>}></Route>
           
-           <Route exact path='/login/admin' element={<Login/>}></Route>
-           <Route exact path='/login/doctor' element={<Login/>}></Route>
-           <Route exact path='/login/patient' element={<Login/>}></Route>
+           {/* <Route exact path='/login/admin' element={}></Route> */}
+           <Route exact path='/login/doctor' element={<LoginDoctor/>}></Route>
+           <Route exact path='/login/patient' element={<LoginPatient/>}></Route>
            
-            <Route exact path="/dashboard/:username" element={<PatientDashboard/>}></Route>
+            <Route exact path="/dashboard/patient/:username" element={<PatientDashboard/>}></Route>
+            <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
 
-           <Route exact path='/register/patient' element={<Register/>}></Route>
-           <Route exact path='/register/doctor' element={<Register/>}></Route>
+            {/* <Route exact path="/dashboard/patient/:username">
+            {Authenticate.isUserloggedIn ?  <PatientDashboard/> : navigate("/login/patient")}
+            </Route> */}
+
+           <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>
+           <Route exact path='/register/doctor' element={<RegisterDoctor/>}></Route>
            
            <Route exact path='/about' element={<About/>}></Route>
            <Route exact path='/contact' element={<Contact/>}></Route>

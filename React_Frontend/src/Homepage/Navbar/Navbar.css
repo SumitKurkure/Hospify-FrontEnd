@@ -1,0 +1,22 @@
+.navbar-custom
+{
+    background: rgb(255, 255, 255);
+    stroke: black 0.5px;
+    box-shadow: black 2px 2px 10px;
+}
+/* .button-custom
+{
+	background-image: linear-gradient(rgb(145, 224, 255),rgb(0, 138, 252),rgb(145, 224, 255));
+}
+.button-custom1
+{
+	background-image: linear-gradient(rgb(180, 255, 180),green,rgb(180, 255, 180));
+} */
+.brand img{
+    width: 140px;
+    height: auto;
+}
+nav .navbar-nav li
+{
+    color: white;
+}
