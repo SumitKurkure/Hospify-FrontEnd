@@ -23,7 +23,6 @@ const LoginPatient =()=>{
 
     if(response.data === "valid")
     {
-      
       // window.location=`/dashboard/${patientLogin.username}`;
       setPatientLogin({username : '',password : ''})
       navigate(`/dashboard/patient/${patientLogin.username}`);

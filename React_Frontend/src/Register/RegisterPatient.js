@@ -30,7 +30,7 @@ const RegisterPatient=()=>{
           if(response.data === "success")
           {
               // console.log("regiseration successfull please login")
-            //  naviagte("/login/patient")
+             navigate("/login/patient")
              Message ="Registeration Successfull Please Login to Acess";
 
           }
