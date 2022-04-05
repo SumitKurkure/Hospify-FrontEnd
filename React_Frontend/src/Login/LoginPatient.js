@@ -64,6 +64,7 @@ const handleInput=(e)=>{
         <div className='form-group '>
         New To Hospify, <a href="/register/patient">Create New Account</a>  
       
+      
         </div>
       </form>
         </div>

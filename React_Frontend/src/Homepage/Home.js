@@ -84,18 +84,6 @@ const Home=()=>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                <div class="product-card">
-                                    <div class="product-img img-one"></div>
-                                        <div class="product-text">
-                                            <h3>Dr. Patil</h3>
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt excepturi totam ducimus, nemo tenetur, quibusdam accusamus neque deserunt aliquid perferendis.</p>
-                                        </div>
-                                        <div class="product-cart">
-                                            <button type="submit">Connect With Doctor</button>
-                                        </div>
-                                    </div>
-                                </div>
                                 
                             </div>
                         </div>

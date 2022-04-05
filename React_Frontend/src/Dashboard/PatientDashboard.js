@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink,Link,useNavigate } from 'react-router-dom';
 import Authenticate from '../Login/Authenticate';
@@ -6,7 +7,7 @@ import './PatientDashboard.css'
 
 function PatientDashboard()
 {
-    // const navigate =useNavigate();
+    const navigate =useNavigate();
 
     // useEffect(()=>{
     //      let result = Authenticate.isUserLoggedIn();
@@ -19,7 +20,6 @@ function PatientDashboard()
     //     return (navigate("/login/patient"));
     //     }
     // })
-
     return(
         
         <div>
@@ -30,7 +30,7 @@ function PatientDashboard()
             <div class="list-group list-group-flush my-3">
                 <Link to="/dashboard" class="list-group-item list-group-item-action bg-transparent active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</Link>
-                 <Link to="/profile" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
+                 <Link to="/dashboard/profile" class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
                         class="fas fa-map-marker-alt me-2"></i>Profile</Link>
                 <Link to="/bookappointment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-project-diagram me-2"></i>Book Appointment</Link>

@@ -16,6 +16,7 @@ import DoctorDashboard from './Dashboard/DoctorDashboard';
 import RegisterDoctor from './Register/RegisterDoctor';
 import RegisterPatient from './Register/RegisterPatient';
 import Authenticate from './Login/Authenticate';
+import ProfilePatient from './Dashboard/Profile/ProfilePatient';
 // import  { useNavigate } from 'react-router-dom'
 function App() 
 {
@@ -34,11 +35,9 @@ function App()
            
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard/>}></Route>
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
+            <Route exact path='/dashboard/profile' element={<ProfilePatient/>}></Route>
 
-            {/* <Route exact path="/dashboard/patient/:username">
-            {Authenticate.isUserloggedIn ?  <PatientDashboard/> : navigate("/login/patient")}
-            </Route> */}
-
+           
            <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>
            <Route exact path='/register/doctor' element={<RegisterDoctor/>}></Route>
            
