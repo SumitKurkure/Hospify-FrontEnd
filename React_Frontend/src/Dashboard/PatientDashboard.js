@@ -32,13 +32,11 @@ function PatientDashboard()
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</Link>
                  <Link to="/dashboard/profile" class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
                         class="fas fa-map-marker-alt me-2"></i>Profile</Link>
-                <Link to="/bookappointment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
-                        class="fas fa-project-diagram me-2"></i>Book Appointment</Link>
-                <Link to="/booklabtest" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
-                        class="fas fa-chart-line me-2"></i>Book Lab-test</Link>
-                <Link to="/buymedicine" class="list-group-item list-group-item-action bg-transparent  fw-bold"><i
-                        class="fas fa-paperclip me-2"></i>Buy Medicine</Link>
-                 <Link to="/feedback" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
+                <Link to="/dashboard/treatment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
+                        class="fas fa-chart-line me-2"></i>Treatment</Link>
+                <Link to="/dashboard/prescription" class="list-group-item list-group-item-action bg-transparent  fw-bold"><i
+                        class="fas fa-paperclip me-2"></i>Prescription</Link>
+                 <Link to="/dashboard/feedback" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-map-marker-alt me-2"></i>FeedBack</Link>
                 <Link to="/login/patient" class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
                         class="fas fa-power-off me-2"></i>Logout</Link>
@@ -77,50 +75,35 @@ function PatientDashboard()
 
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-white d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">720</h3>
-                                <p class="fs-5">Products</p>
+                              <button className="btn btn-primary btn-lg ">Book Appointment</button>
                             </div>
-                            <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div class="col-md-4">
+                        <div class="p-3 bg-white  d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">4920</h3>
-                                <p class="fs-5">Sales</p>
+                                <p class="btn btn-success btn-lg">Book Lab Test</p>
                             </div>
-                            <i
-                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+            
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">3899</h3>
-                                <p class="fs-5">Delivery</p>
+                                <p class="btn btn-lg btn-danger">Buy Medicine</p>
                             </div>
-                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">%25</h3>
-                                <p class="fs-5">Increase</p>
-                            </div>
-                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                     </div>
                 </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Recent Orders</h3>
+                    <h3 class="fs-4 mb-3">Appointment</h3>
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>

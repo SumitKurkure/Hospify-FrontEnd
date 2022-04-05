@@ -18,6 +18,8 @@ import RegisterPatient from './Register/RegisterPatient';
 import Authenticate from './Login/Authenticate';
 import ProfilePatient from './Dashboard/Profile/ProfilePatient';
 // import  { useNavigate } from 'react-router-dom'
+import Prescription from './Dashboard/Prescription'
+import Treatment from './Dashboard/Treatment'
 function App() 
 {
   // const navigate = useNavigate();
@@ -36,7 +38,9 @@ function App()
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard/>}></Route>
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
             <Route exact path='/dashboard/profile' element={<ProfilePatient/>}></Route>
-
+            <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
+            <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
+            
            
            <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>
            <Route exact path='/register/doctor' element={<RegisterDoctor/>}></Route>
