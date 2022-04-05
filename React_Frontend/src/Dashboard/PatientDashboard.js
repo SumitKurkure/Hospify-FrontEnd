@@ -79,7 +79,7 @@ function PatientDashboard()
                     <div class="col-md-4">
                         <div class="p-3 bg-white d-flex justify-content-around align-items-center rounded">
                             <div>
-                              <button className="btn btn-primary btn-lg ">Book Appointment</button>
+                              <Link className="btn btn-primary btn-lg " to="/bookappointment">Book Appointment</Link>
                             </div>
                         </div>
                     </div>

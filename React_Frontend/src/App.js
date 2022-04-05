@@ -20,6 +20,8 @@ import ProfilePatient from './Dashboard/Profile/ProfilePatient';
 // import  { useNavigate } from 'react-router-dom'
 import Prescription from './Dashboard/Prescription'
 import Treatment from './Dashboard/Treatment'
+import BookAppointment from './BookAppointment/BookAppointment'
+
 function App() 
 {
   // const navigate = useNavigate();
@@ -40,6 +42,7 @@ function App()
             <Route exact path='/dashboard/profile' element={<ProfilePatient/>}></Route>
             <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
+            <Route exact path='/bookappointment' element={<BookAppointment/>}></Route>
             
            
            <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>
