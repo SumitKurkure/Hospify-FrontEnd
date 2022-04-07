@@ -63,7 +63,7 @@ const handleInput=(e)=>{
         <button type="submit" class="btn btn-primary rounded-pill mb-3  w-75" >Login</button>
         
         <div className='form-group '>
-        <Link to={'/forgotpassword'} class=""> Forgot Password</Link>
+        <Link to={'/login/patient/forgotpassword'} class=""> Forgot Password</Link>
         <p></p>
         New To Hospify, <Link to="/register/patient">Create New Account</Link>  
     

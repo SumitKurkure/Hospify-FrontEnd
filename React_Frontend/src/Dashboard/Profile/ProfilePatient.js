@@ -14,6 +14,9 @@ const getPatientDetails = () =>
 {
     axios.get("http://localhost:8080/dashboard/patient")
 }
+const updateProfile=()=>{
+  
+}
 
   return (
        <div>
@@ -32,7 +35,17 @@ const getPatientDetails = () =>
   </thead>
   <tbody>
     {
-        
+        <tr>
+        <td>{patient.Name}</td>
+        <td>{patient.age}</td>
+        <td>{patient.address}</td>
+        <td>{patient.bloodGroup}</td>
+        <td>{patient.email}</td>
+        <td>{patient.mobile}</td>
+        <td>
+              <button onClick={updateProfile} className="btn btn-primary">Update </button> 
+        </td>
+    </tr>
     }
   </tbody>
 </table>

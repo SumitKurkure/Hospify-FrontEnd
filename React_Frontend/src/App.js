@@ -23,6 +23,7 @@ import Authenticate from './Login/Authenticate';
 // import {useNavigate} from 'react-router-dom';
 import ShowDoctor from "./BookAppointment/ShowDoctor"
 import ShowHospital from "./BookAppointment/ShowHospital"
+import ForgotPassword from './Login/ForgotPassword';
 
 function App() 
 {
@@ -38,7 +39,8 @@ function App()
            {/* <Route exact path='/login/admin' element={}></Route> */}
            <Route exact path='/login/doctor' element={<LoginDoctor/>}></Route>
            <Route exact path='/login/patient' element={<LoginPatient/>}></Route>
-           
+           <Route exact path='/login/patient/forgotpassword' element={<ForgotPassword/>}></Route>
+
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
            
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
