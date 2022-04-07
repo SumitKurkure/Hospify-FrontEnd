@@ -1,18 +1,24 @@
 import axios from 'axios';
 import React , {useState , useEffect} from 'react'
+import { useParams } from 'react-router';
 
 
 const ProfilePatient = () => {
 
 const[patient,setPatient] = useState([]);
-
+var {username} = useParams();
 useEffect(() => {
   getPatientDetails();
 }, [])
 
-const getPatientDetails = () => 
+const getPatientDetails = async () => 
 {
-    axios.get("http://localhost:8080/dashboard/patient")
+   await axios.get("http://localhost:8080/profile/patient/"+username).then((Response)=>{
+    console.log(Response.data);
+   }).catch((error)=>{
+     console.log(error)
+   })
+   
 }
 const updateProfile=()=>{
   

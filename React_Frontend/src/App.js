@@ -44,7 +44,7 @@ function App()
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
            
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
-            <Route exact path='/dashboard/profile' element={<ProfilePatient/>}></Route>
+            <Route exact path='/dashboard/profile/:username' element={<ProfilePatient/>}></Route>
             <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
 
