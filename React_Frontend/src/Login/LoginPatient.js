@@ -8,7 +8,8 @@ import Authenticate from './Authenticate';
 const LoginPatient =()=>{
   
   const [patientLogin,setPatientLogin] = useState({username: "", password :""});
-       const navigate = useNavigate();
+
+  const navigate = useNavigate();
 
 
        
@@ -24,8 +25,7 @@ const LoginPatient =()=>{
     if(response.data === "valid")
     {
       Authenticate.loggedIn(patientLogin.username);
-      // sessionStorage.setItem("token",JSON.stringify(patientLogin.username));
-      // window.location=`/dashboard/${patientLogin.username}`;
+      
       navigate(`/dashboard/patient/${patientLogin.username}`);
       setPatientLogin({username : '',password : ''})
       
@@ -61,10 +61,12 @@ const handleInput=(e)=>{
             <input type="password"  class="form-control" placeholder="Password" name='password' required onChange={handleInput}/>
           </div>
         <button type="submit" class="btn btn-primary rounded-pill mb-3  w-75" >Login</button>
+        
         <div className='form-group '>
+        <Link to={'/forgotpassword'} class=""> Forgot Password</Link>
+        <p></p>
         New To Hospify, <Link to="/register/patient">Create New Account</Link>  
-      
-      
+    
         </div>
       </form>
         </div>

@@ -8,6 +8,7 @@ const BookAppointment = () => {
 
   const[hospList,setHospList]= useState([]);
   const [city,setCity]= useState({cityName :""});
+  const [flag,setFlag]= useState(false);
 
     const showHospital= async (e)=>{
       e.preventDefault();
@@ -15,7 +16,7 @@ const BookAppointment = () => {
       await axios.get("http://localhost:8080/bookappointment/hospital/"+city.cityName).then((Response)=>{
       
           setHospList(Response.data);
-
+          setFlag(true);
             console.log(hospList); // two time clicks get data issue
             // navigate("/bookappointment/showhospital/"+city.cityName);
 
@@ -29,39 +30,7 @@ const BookAppointment = () => {
       var value = e.target.value;
       setCity({...city,[name] : value})  
     }
-    if(Response)
-      return( 
-        <div>
-          <table>
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Address</th>
-              <th scope="col">city</th>
-              <th scope="col">AvailableTime</th>
-              <th scope="col">Mobile</th>
-              <th scope="col">Email</th>
-              <th scope="col">IcuBed</th>
-              <th scope="col">NormaBbed</th>
-              <th scope="col">TreatMentType</th>
-              <th scope="col">gov/private</th>
-              <th scope="col">fees</th>
-              <th scope="col">lab/not</th>
-            </tr>
-          </thead>
-          <tbody>
-          {
-            hospList.map((item)=>{
-              
-            })
-          }
-          </tbody>
-          </table>
-        </div>
-      )
-    
-    else
+
   return (
     
     <div>
@@ -70,12 +39,12 @@ const BookAppointment = () => {
           <h5 class="card-title mb-2">Search Hospital By City</h5>
           <input class="mb-2" name='cityName' onChange={onChangeSetCity} size={35} placeholder='Enter the City Name'/>
           <p></p>
-          <Link to="/bookappointment/showhospital/:cityName" class="btn btn-primary mb-3" onClick={showHospital}>Search</Link>
+          <Link to="" class="btn btn-primary mb-3" onClick={showHospital}>Search</Link>
           <p></p>
-          <Link to={'/bookappointment/showhospital'} className="btn btn-outline-dark me-2 ">Pune</Link>
-          <Link to={'/bookappointment/showhospital'} className="btn btn-outline-dark me-2">Mumbai</Link>
-          <Link to={'/bookappointment/showhospital'} className="btn btn-outline-dark me-2">Nagpur</Link>
-          <Link to={'/bookappointment/showhospital'} className="btn btn-outline-dark me-2">Nashik</Link>
+          <Link to={''} className="btn btn-outline-dark me-2 " onClick={showHospital}>Pune</Link>
+          <Link to={''} className="btn btn-outline-dark me-2" onClick={showHospital}>Mumbai</Link>
+          <Link to={''} className="btn btn-outline-dark me-2" onClick={showHospital}>Nagpur</Link>
+          <Link to={''} className="btn btn-outline-dark me-2" onClick={showHospital}>Nashik</Link>
         </div>
           <div>
           <div class="row m-2 ">

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { NavLink,Link,useNavigate } from 'react-router-dom';
+import { NavLink,Link,useNavigate ,useParams} from 'react-router-dom';
 import Authenticate from '../Login/Authenticate';
 import LoginPatient from '../Login/LoginPatient';
 import './PatientDashboard.css'
@@ -10,6 +10,7 @@ function PatientDashboard()
     const logout =()=>{
     Authenticate.logout();
     }
+    var {username} = useParams();
 
     return(
         
@@ -52,12 +53,11 @@ function PatientDashboard()
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>{LoginPatient.username}
+                                <i class="fas fa-user me-2"></i>{username}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><Link class="dropdown-item" to="dashboard/profile">Profile</Link></li>
+                                <li><Link class="dropdown-item" to="/login/patient " onClick={logout}>Logout</Link></li>
                             </ul>
                         </li>
                     </ul>

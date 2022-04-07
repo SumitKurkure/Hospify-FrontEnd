@@ -7,7 +7,6 @@ const ProfilePatient = () => {
 const[patient,setPatient] = useState([]);
 
 useEffect(() => {
-
   getPatientDetails();
 }, [])
 
@@ -15,7 +14,6 @@ const getPatientDetails = () =>
 {
     axios.get("http://localhost:8080/dashboard/patient")
 }
-
 
   return (
        <div>
