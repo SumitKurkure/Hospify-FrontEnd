@@ -1,26 +1,24 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link ,useNavigate } from 'react-router-dom'
+import ShowDoctor from './ShowDoctor';
 const BookAppointment = () => {
 
   const navigate = useNavigate();
 
-  const[hospList,setHospList]= useState({});
+  const[hospList,setHospList]= useState([]);
   const [city,setCity]= useState({cityName :""});
 
-    const showHospital=(e)=>{
+    const showHospital= async (e)=>{
       e.preventDefault();
 
-      axios.get("http://localhost:8080/bookappointment/hospital/"+city.cityName).then((Response)=>{
-        if(Response.data == null)
-        {
-          console.log("no hospital found")
-        }
-        else
-        {
+      await axios.get("http://localhost:8080/bookappointment/hospital/"+city.cityName).then((Response)=>{
+      
           setHospList(Response.data);
-          console.log(hospList);
-        }
+
+            console.log(hospList); // two time clicks get data issue
+            // navigate("/bookappointment/showhospital/"+city.cityName);
+
       }).catch((err)=>{
         console.log(err)
       })
@@ -31,14 +29,48 @@ const BookAppointment = () => {
       var value = e.target.value;
       setCity({...city,[name] : value})  
     }
+    if(Response)
+      return( 
+        <div>
+          <table>
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">city</th>
+              <th scope="col">AvailableTime</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Email</th>
+              <th scope="col">IcuBed</th>
+              <th scope="col">NormaBbed</th>
+              <th scope="col">TreatMentType</th>
+              <th scope="col">gov/private</th>
+              <th scope="col">fees</th>
+              <th scope="col">lab/not</th>
+            </tr>
+          </thead>
+          <tbody>
+          {
+            hospList.map((item)=>{
+              
+            })
+          }
+          </tbody>
+          </table>
+        </div>
+      )
+    
+    else
   return (
+    
     <div>
         <div class="card text-center mb-3">      
         <div class="card-body">
           <h5 class="card-title mb-2">Search Hospital By City</h5>
           <input class="mb-2" name='cityName' onChange={onChangeSetCity} size={35} placeholder='Enter the City Name'/>
           <p></p>
-          <Link to="" class="btn btn-primary mb-3" onClick={showHospital}>Search</Link>
+          <Link to="/bookappointment/showhospital/:cityName" class="btn btn-primary mb-3" onClick={showHospital}>Search</Link>
           <p></p>
           <Link to={'/bookappointment/showhospital'} className="btn btn-outline-dark me-2 ">Pune</Link>
           <Link to={'/bookappointment/showhospital'} className="btn btn-outline-dark me-2">Mumbai</Link>
