@@ -27,4 +27,4 @@ class Authenticate extends Component
         }
     }
 }
-export default Authenticate;
+export default new Authenticate();

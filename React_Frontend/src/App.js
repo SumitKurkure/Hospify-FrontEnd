@@ -15,12 +15,14 @@ import PatientDashboard from './Dashboard/PatientDashboard';
 import DoctorDashboard from './Dashboard/DoctorDashboard';
 import RegisterDoctor from './Register/RegisterDoctor';
 import RegisterPatient from './Register/RegisterPatient';
-import Authenticate from './Login/Authenticate';
 import ProfilePatient from './Dashboard/Profile/ProfilePatient';
-// import  { useNavigate } from 'react-router-dom'
 import Prescription from './Dashboard/Prescription'
 import Treatment from './Dashboard/Treatment'
 import BookAppointment from './BookAppointment/BookAppointment'
+import Authenticate from './Login/Authenticate';
+// import {useNavigate} from 'react-router-dom';
+import ShowDoctor from "./BookAppointment/ShowDoctor"
+import ShowHospital from "./BookAppointment/ShowHospital"
 
 function App() 
 {
@@ -37,12 +39,16 @@ function App()
            <Route exact path='/login/doctor' element={<LoginDoctor/>}></Route>
            <Route exact path='/login/patient' element={<LoginPatient/>}></Route>
            
-            <Route exact path="/dashboard/patient/:username" element={<PatientDashboard/>}></Route>
+            <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
+           
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
             <Route exact path='/dashboard/profile' element={<ProfilePatient/>}></Route>
             <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
+
             <Route exact path='/bookappointment' element={<BookAppointment/>}></Route>
+            <Route exact path='/bookappointment/showdoctor' element={<ShowDoctor/>}></Route>
+            <Route exact path='/bookappointment/showhospital' element={<ShowHospital/>}></Route>
             
            
            <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>

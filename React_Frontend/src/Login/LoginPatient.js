@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './LoginPatient.css'
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import PatientDashboard from '../Dashboard/PatientDashboard';
 import Authenticate from './Authenticate';
 
@@ -23,10 +23,11 @@ const LoginPatient =()=>{
 
     if(response.data === "valid")
     {
-      // window.location=`/dashboard/${patientLogin.username}`;
-      setPatientLogin({username : '',password : ''})
-      navigate(`/dashboard/patient/${patientLogin.username}`);
       Authenticate.loggedIn(patientLogin.username);
+      // sessionStorage.setItem("token",JSON.stringify(patientLogin.username));
+      // window.location=`/dashboard/${patientLogin.username}`;
+      navigate(`/dashboard/patient/${patientLogin.username}`);
+      setPatientLogin({username : '',password : ''})
       
     }
     else{
@@ -37,9 +38,8 @@ const LoginPatient =()=>{
   }).catch((err)=>{
     console.log(err.response);
   })
-
-
 }
+
 const handleInput=(e)=>{
   var name = e.target.name;
   var value = e.target.value;
@@ -62,7 +62,7 @@ const handleInput=(e)=>{
           </div>
         <button type="submit" class="btn btn-primary rounded-pill mb-3  w-75" >Login</button>
         <div className='form-group '>
-        New To Hospify, <a href="/register/patient">Create New Account</a>  
+        New To Hospify, <Link to="/register/patient">Create New Account</Link>  
       
       
         </div>
