@@ -24,6 +24,7 @@ import Authenticate from './Login/Authenticate';
 import ShowDoctor from "./BookAppointment/ShowDoctor"
 import ShowHospital from "./BookAppointment/ShowHospital"
 import ForgotPassword from './Login/ForgotPassword';
+import SendPrescription from './Dashboard/DoctorDashboard/SendPrescription';
 
 function App() 
 {
@@ -45,6 +46,9 @@ function App()
            
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
             <Route exact path="/dashboard/profile/:username" element={<ProfilePatient/>}></Route>
+
+            <Route exact path="/dashboard/doctor/sendprescription" element={<SendPrescription/>}></Route>
+
             <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
 

@@ -10,14 +10,12 @@ function PatientDashboard()
     const logout =()=>{
     Authenticate.logout();
     }
-    var { username } = useParams();
 
+    var { id } = useParams();
     var navigate = useNavigate();
-    
-    const usernameParam=()=>{
 
-        navigate(`/dashboard/profile/${username}`)
-
+    const idParam=()=>{
+        navigate(`/dashboard/profile/${id}`)
     }
 
     return(
@@ -30,7 +28,7 @@ function PatientDashboard()
             <div class="list-group list-group-flush my-3">
                 <Link to="/dashboard/patient" class="list-group-item list-group-item-action bg-transparent active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</Link>
-                 <button class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={usernameParam}><i
+                 <button class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={idParam}><i
                         class="fas fa-map-marker-alt me-2"></i>Profile</button>
                 <Link to="/dashboard/treatment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-chart-line me-2"></i>Treatment</Link>
@@ -61,7 +59,7 @@ function PatientDashboard()
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>{username}
+                                <i class="fas fa-user me-2"></i>{id}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><Link class="dropdown-item" to="dashboard/profile">Profile</Link></li>

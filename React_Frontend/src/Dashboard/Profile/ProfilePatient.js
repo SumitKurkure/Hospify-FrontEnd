@@ -4,12 +4,11 @@ import { useParams } from 'react-router';
 import UpdatePatient from './UpdatePatient'
 import { Link } from 'react-router-dom'
 
-
 const ProfilePatient = () => {
 
 const[patient,setPatient] = useState({ });
 
-var {username} = useParams();
+var {id} = useParams();
 
 useEffect(()=>{ 
   getPatientDetails();
@@ -17,13 +16,11 @@ useEffect(()=>{
 
 const getPatientDetails = async () => 
 {
-   await axios.get(`http://localhost:8080/profile/patient/${username}`).then((Response)=>{
+   await axios.get(`http://localhost:8080/profile/patient/${id}`).then((Response)=>{
   
     setPatient(Response.data); 
 
-      console.log(patient)
-    
-
+      console.log(patient);
    })
    
 }

@@ -19,16 +19,8 @@ function DoctorDashboard ()
     const sendPrescription=()=>{
      setFlag(true);
     }
-    if(flag)
-    {
-    return(
-      <div>
-          <SendPrescription/>
-      </div>
-    )
-    }
-    else
-    {
+
+
   return (
     <div>
         <div class="d-flex" id="wrapper">
@@ -97,7 +89,7 @@ function DoctorDashboard ()
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <button class="btn btn-lg btn-transparent" onClick={sendPrescription}>Send Prescription</button>
+                                <Link class="btn btn-lg btn-transparent" to='/dashboard/doctor/sendprescription'>Send Prescription</Link>
                             </div>
                         </div>
                     </div>
@@ -145,7 +137,7 @@ function DoctorDashboard ()
     </div>
         </div>
   )
-}
+
 }
 
 export default DoctorDashboard;
