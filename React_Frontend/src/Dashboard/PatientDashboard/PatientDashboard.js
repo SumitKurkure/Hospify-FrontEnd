@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink,Link,useNavigate ,useParams} from 'react-router-dom';
-import Authenticate from '../Login/Authenticate';
-import LoginPatient from '../Login/LoginPatient';
+import Authenticate from '../../Login/Authenticate';
+import LoginPatient from '../../Login/LoginPatient';
 import './PatientDashboard.css'
 
 function PatientDashboard()
@@ -10,7 +10,15 @@ function PatientDashboard()
     const logout =()=>{
     Authenticate.logout();
     }
-    var {username} = useParams();
+    var { username } = useParams();
+
+    var navigate = useNavigate();
+    
+    const usernameParam=()=>{
+
+        navigate(`/dashboard/profile/${username}`)
+
+    }
 
     return(
         
@@ -20,10 +28,10 @@ function PatientDashboard()
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     lass="fas fa-user-secret me-2"></i>Hospify</div>
             <div class="list-group list-group-flush my-3">
-                <Link to="/dashboard" class="list-group-item list-group-item-action bg-transparent active"><i
+                <Link to="/dashboard/patient" class="list-group-item list-group-item-action bg-transparent active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</Link>
-                 <Link to="/dashboard/profile" class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
-                        class="fas fa-map-marker-alt me-2"></i>Profile</Link>
+                 <button class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={usernameParam}><i
+                        class="fas fa-map-marker-alt me-2"></i>Profile</button>
                 <Link to="/dashboard/treatment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-chart-line me-2"></i>Treatment</Link>
                 <Link to="/dashboard/prescription" class="list-group-item list-group-item-action bg-transparent  fw-bold"><i

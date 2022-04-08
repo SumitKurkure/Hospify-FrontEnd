@@ -11,13 +11,13 @@ import Navbar from './Homepage/Navbar/Navbar';
 import NotFound from './Pages/NotFound';
 import LoginPatient from './Login/LoginPatient';
 import LoginDoctor from './Login/LoginDoctor';
-import PatientDashboard from './Dashboard/PatientDashboard';
-import DoctorDashboard from './Dashboard/DoctorDashboard';
+import PatientDashboard from './Dashboard/PatientDashboard/PatientDashboard';
+import DoctorDashboard from './Dashboard/DoctorDashboard/DoctorDashboard';
 import RegisterDoctor from './Register/RegisterDoctor';
 import RegisterPatient from './Register/RegisterPatient';
 import ProfilePatient from './Dashboard/Profile/ProfilePatient';
-import Prescription from './Dashboard/Prescription'
-import Treatment from './Dashboard/Treatment'
+import Prescription from './Dashboard/PatientDashboard/Prescription'
+import Treatment from './Dashboard/PatientDashboard/Treatment'
 import BookAppointment from './BookAppointment/BookAppointment'
 import Authenticate from './Login/Authenticate';
 // import {useNavigate} from 'react-router-dom';
@@ -44,7 +44,7 @@ function App()
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
            
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
-            <Route exact path='/dashboard/profile/:username' element={<ProfilePatient/>}></Route>
+            <Route exact path="/dashboard/profile/:username" element={<ProfilePatient/>}></Route>
             <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
 

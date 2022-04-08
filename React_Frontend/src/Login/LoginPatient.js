@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './LoginPatient.css'
 import axios from 'axios';
 import {useNavigate, Link} from 'react-router-dom'
-import PatientDashboard from '../Dashboard/PatientDashboard';
+import PatientDashboard from '../Dashboard/PatientDashboard/PatientDashboard';
 import Authenticate from './Authenticate';
 
 const LoginPatient =()=>{

@@ -1,27 +1,31 @@
 import axios from 'axios';
 import React , {useState , useEffect} from 'react'
 import { useParams } from 'react-router';
+import UpdatePatient from './UpdatePatient'
+import { Link } from 'react-router-dom'
 
 
 const ProfilePatient = () => {
 
-const[patient,setPatient] = useState([]);
+const[patient,setPatient] = useState({ });
+
 var {username} = useParams();
-useEffect(() => {
+
+useEffect(()=>{ 
   getPatientDetails();
-}, [])
+})
 
 const getPatientDetails = async () => 
 {
-   await axios.get("http://localhost:8080/profile/patient/"+username).then((Response)=>{
-    console.log(Response.data);
-   }).catch((error)=>{
-     console.log(error)
+   await axios.get(`http://localhost:8080/profile/patient/${username}`).then((Response)=>{
+  
+    setPatient(Response.data); 
+
+      console.log(patient)
+    
+
    })
    
-}
-const updateProfile=()=>{
-  
 }
 
   return (
@@ -33,7 +37,7 @@ const updateProfile=()=>{
         <th className="text-center"> Name</th>
         <th className="text-center"> Age</th>
         <th className="text-center">Address</th>
-        <th className="text-center">Blood-Group</th>
+        <th className="text-center">BloodGroup</th>
         <th className="text-center">Email</th>
         <th className="text-center">MobileNo</th>
         <th className="text-center">Actions</th> 
@@ -41,17 +45,19 @@ const updateProfile=()=>{
   </thead>
   <tbody>
     {
+      patient.map( patient =>{
         <tr>
-        <td>{patient.Name}</td>
+        <td>{patient.pname}</td>
         <td>{patient.age}</td>
         <td>{patient.address}</td>
-        <td>{patient.bloodGroup}</td>
+        <td>{patient.bloogroup}</td>
         <td>{patient.email}</td>
         <td>{patient.mobile}</td>
         <td>
-              <button onClick={updateProfile} className="btn btn-primary">Update </button> 
+        <Link className="btn btn-info" to={`/edit-employee/${patient.id}`} >Update</Link> 
         </td>
-    </tr>
+        </tr>
+      })
     }
   </tbody>
 </table>
