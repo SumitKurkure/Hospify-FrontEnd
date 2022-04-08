@@ -5,37 +5,27 @@ import axios from 'axios'
 const ShowHospital = () => {
 
   const navigate = useNavigate();
-
   const[hospList,setHospList]= useState({});
-
-  function BlogPost() {
     var { cityName } = useParams();
-    return cityName
-  }
+
     const showHospital= async (e)=>{
       e.preventDefault();
-
-        
-      var cityName = BlogPost();
-      
-
       await axios.get("http://localhost:8080/bookappointment/showhospital/"+cityName).then((Response)=>{
        
-      console.log(Response.data)
+          console.log(Response.data)
           setHospList(Response.data);
   
-          console.log(hospList); 
 
       }).catch((err)=>{
         console.log(err)
       })
     }
-
+    console.log(hospList); 
 
 
   return (
     <div>
-        <button onClick={showHospital}>show hospital</button>
+        <button onClick={showHospital}></button>
 
     </div>
   )

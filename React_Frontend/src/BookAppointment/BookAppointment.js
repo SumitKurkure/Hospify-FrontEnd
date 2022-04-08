@@ -9,26 +9,14 @@ const BookAppointment = () => {
   const[hospList,setHospList]= useState([]);
 
   const [city,setCity]= useState({cityName :""});
-  const [flag,setFlag]= useState(false);
 
     const showHospital= async (e)=>{
       e.preventDefault();
 
-      await axios.get("http://localhost:8080/bookappointment/hospital/"+city.cityName).then((Response)=>{
-      
-          setHospList(Response.data);
+            navigate("/bookappointment/showhospital/"+city.cityName);
 
-          setFlag(true);
-
-          console.log(Response.data)
-
-            console.log(hospList); // two time clicks get data issue
-            // navigate("/bookappointment/showhospital/"+city.cityName);
-
-      }).catch((err)=>{
-        console.log(err)
-      })
-    }
+      }
+  
 
     const onChangeSetCity =(e)=>{
       var name = e.target.name;
