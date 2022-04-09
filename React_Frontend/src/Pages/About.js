@@ -3,19 +3,10 @@ import React from 'react';
 
 const About=()=>{
     return(
-        <div>
-            Hospify :
-Hospify – Stay Home OPD has been developed by Centre for Development of Advanced Computing (C-DAC) in Mohali. Salient features of this citizen friendly web-based National Teleconsultation Service (eSanjeevaniOPD) are:
-
-Patient registration
-Token Generation
-Queue Management
-Audio-Video Consultation with a Doctor
-ePrescription
-SMS/Email Notifications
-Serviced by State’s Doctors
-Free Service
-Fully configurable (no. of daily slots, no. of doctors/clinics, waiting room slots, consultation time limit etc).
+        <div className='container' >
+         <h3 className='mb-5'>
+         we have digitlize the hospital system by integrating the hospital live data at one platform like available of all type of beds, designation and availability of doctors, etc. Any one can easily book an appointment with a doctor as per available time and get a home delivered medicine prescribed as per doctor. And you can check medicine availability at any medical before visitingoUsed Test Driven Development approach and Object-Oriented Design.We use technology like react js and spring boot rest .
+        </h3>
         </div>
     )
 }

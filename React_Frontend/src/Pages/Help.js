@@ -3,7 +3,7 @@ import React from 'react';
 
 const Help=() =>{
     return(
-       
+       <div className='container'>
         <div _ngcontent-c2="" class="col-md-8 col-sm-12 pl-5 ">
             <h5 _ngcontent-c2="" class="pt-3 padding-l me-5 m-5">Follow these steps to consult doctor</h5>
             <div _ngcontent-c2="" class="row padding-l">
@@ -19,7 +19,7 @@ const Help=() =>{
                         </div>
                     </div>
             </div>
-    
+        </div>
     )
 }
 export default Help;

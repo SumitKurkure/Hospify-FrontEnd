@@ -10,8 +10,8 @@ const Contact=()=>{
                     <input type="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control mb-5" id="exampleInputPassword1" placeholder="Password"/>
+                    <label for="exampleInputPassword1">Message</label>
+                    <input  type="text" class="form-control mb-5" id="exampleInputPassword1" placeholder="Password"/>
                 </div>
             
                 <button type="submit" class="btn btn-primary">Submit</button>

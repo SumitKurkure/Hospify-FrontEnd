@@ -28,12 +28,9 @@ const LoginPatient =()=>{
       
       navigate(`/dashboard/patient/${patientLogin.username}`);
       setPatientLogin({username : '',password : ''})
-      
     }
     else{
-      setPatientLogin({username: '', password: '' });
-      // setError('invalid Username and Password');
-    
+      setPatientLogin({username: '', password: '' });    
     }
   }).catch((err)=>{
     console.log(err.response);

@@ -11,7 +11,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         console.log(loginPatient)
         
-        await axios.post("http://localhost:8080/login/patient/forgotpassword/"+loginPatient.username,{
+        await axios.post(`http://localhost:8080/login/patient/forgotpassword/${loginPatient.username}`,{
             username : loginPatient.username,
             password : loginPatient.password, 
         }).then((Response)=>{

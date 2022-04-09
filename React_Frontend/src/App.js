@@ -48,13 +48,13 @@ function App()
             <Route exact path="/dashboard/patient/profile/:username" element={<ProfilePatient/>}></Route>
             <Route exact path="/dashboard/update-patient/:username" element={<UpdatePatient/>}></Route>
 
-            <Route exact path="/dashboard/doctor/sendprescription" element={<SendPrescription/>}></Route>
+            <Route exact path="/dashboard/doctor/sendprescription/:username" element={<SendPrescription/>}></Route>
 
             <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
 
             <Route exact path='/bookappointment' element={<BookAppointment/>}></Route>
-            <Route exact path='/bookappointment/showdoctor' element={<ShowDoctor/>}></Route>
+            <Route exact path='/bookappointment/showdoctor/:speciality' element={<ShowDoctor/>}></Route>
             <Route exact path='/bookappointment/showhospital/:cityName' element={<ShowHospital/>}></Route>
             
            

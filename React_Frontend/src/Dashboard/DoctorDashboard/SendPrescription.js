@@ -3,19 +3,26 @@ import React, { useState } from 'react'
 import { Link,useParams,useNavigate } from 'react-router-dom'
 
 const SendPrescription = () => {
-  const initialValue= {patientName : "", medicinFirst: "",medicineSecond :"",labTestName: "",dosePerDay:"",dayToVist:""}
-const[prescription,setPrescription] = useState({initialValue});
+  
+const[prescription,setPrescription] = useState({ pusername : "", medicineFirst: "",medicineSecond :"",labTestName: "",dosePerDay:"",dayToVist:""});
 
-    // var {username} = useParams();
+    var {username} = useParams();
+
 var navigate = useNavigate()
  
-const sendPrescription= async ()=>{
-  await axios.post("http://localhost:8080/dashboard/doctor/sendprescription",{initialValue}).then((Response)=>{
+const sendPrescription=  (e)=>{
+    e.preventDefault();
+    console.log(prescription);
+   axios.post(`http://localhost:8080/dashboard/doctor/sendprescription/${username}`,{
+    pusername : prescription.pusername,  medicineFirst: prescription.medicineFirst , medicineSecond : prescription.medicineSecond,labTestName: prescription.labTestName,dosePerDay:prescription.dosePerDay,dayToVist:prescription.dayToVist,
+  }).then((Response)=>{
+    
     console.log(Response.data);
+
     if(Response.data === "sended")
     {
-      navigate(`/dashboard/doctor/:username`);
-      setPrescription({ });
+      navigate(`/dashboard/doctor/${username}`);
+    
     }
   }).catch((error)=>{
     console.log(error)
@@ -30,18 +37,18 @@ const handleInput=(e)=>{
 }
   return (
     <div className='container'>
-      <form action="" className='form-group h-75 w-50'>
-        Patient UserName<input type="text" name='patientName' placeholder='enter the patient Name' onChange={handleInput}/>
+      <form action="" className='form-group h-75 w-50 border shadow'>
+        Patient UserName<input type="text" class="form-control border-dark" name='pusername' placeholder='enter the patient Name' onChange={handleInput}/>
         <p></p>
-        Medicine Name 1<input type="text" name="medicineFirst" onChange={handleInput}/>
+        Medicine Name 1<input type="text" class="form-control border-dark" name="medicineFirst" onChange={handleInput}/>
         <p></p>
-        Medicine Name 2<input type="text" name="medicineSecond"onChange={handleInput} />
+        Medicine Name 2<input type="text" class="form-control border-dark" name="medicineSecond"onChange={handleInput} />
         <p></p>
-        LabTestName<input type="text" name='labTestName' placeholder='enter the lab Test' onChange={handleInput}/>
+        LabTestName<input type="text" class="form-control border-dark" name='labTestName' placeholder='enter the lab Test' onChange={handleInput}/>
         <p></p>
-        Dose/Day<input type="text" name='dosePerDay' placeholder='enter the doses per day'onChange={handleInput}/>
+        Dose/Day<input type="text" class="form-control border-dark" name='dosePerDay' placeholder='enter the doses per day'onChange={handleInput}/>
         <p></p>
-        Visit After<input type="text" name='dayToVist' placeholder='enter the days after visit' className='mb-3 ' onChange={handleInput}/>
+        Visit After<input type="text" class="form-control border-dark" name='dayToVist' placeholder='enter the days after visit' className='mb-3 ' onChange={handleInput}/>
         <p></p>
         <button className='btn btn-primary btn-lg' onClick={sendPrescription}>Send Prescription</button>
       </form>

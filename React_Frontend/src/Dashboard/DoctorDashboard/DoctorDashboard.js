@@ -17,7 +17,7 @@ function DoctorDashboard ()
     }
 
     const sendPrescription=()=>{
-     setFlag(true);
+     navigate(`/dashboard/doctor/sendprescription/${username}`);
     }
 
 
@@ -89,7 +89,7 @@ function DoctorDashboard ()
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <Link class="btn btn-lg btn-transparent" to='/dashboard/doctor/sendprescription'>Send Prescription</Link>
+                                <button class="btn btn-lg btn-transparent" onClick={sendPrescription}>Send Prescription</button>
                             </div>
                         </div>
                     </div>
