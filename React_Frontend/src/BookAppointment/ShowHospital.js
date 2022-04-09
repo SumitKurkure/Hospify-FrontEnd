@@ -5,9 +5,9 @@ import axios from 'axios'
 const ShowHospital = () => {
 
   const navigate = useNavigate();
-  const[hospList,setHospList]= useState({});
+  const[hospList,setHospList]= useState([]);
     var { cityName } = useParams();
-
+  
     const showHospital= async (e)=>{
       e.preventDefault();
       await axios.get("http://localhost:8080/bookappointment/showhospital/"+cityName).then((Response)=>{
@@ -25,8 +25,34 @@ const ShowHospital = () => {
 
   return (
     <div>
-        <button onClick={showHospital}></button>
-
+        <button onClick={showHospital}>Show Hospital</button>
+        <div>
+        <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      
+        hospList.map((item)=>{
+          return(
+          <tr>
+          <td>{item.hospid}</td>
+          <td>{item.hospname}</td>
+          <td>{item.hospadd}</td>
+          <td>{item.city}</td>
+          </tr>
+         )})
+    
+    }
+  </tbody>
+</table>
+        </div>
     </div>
   )
 }
