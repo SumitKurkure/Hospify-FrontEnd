@@ -26,7 +26,6 @@ import ShowHospital from "./BookAppointment/ShowHospital"
 import ForgotPassword from './Login/ForgotPassword';
 import SendPrescription from './Dashboard/DoctorDashboard/SendPrescription';
 import UpdatePatient from './Dashboard/Profile/UpdatePatient'
-import AuthenticatedRoute from './Login/AuthenticateRoute';
 function App() 
 {
   // const navigate = useNavigate();
@@ -42,19 +41,21 @@ function App()
            <Route exact path='/login/doctor' element={<LoginDoctor/>}></Route>
            <Route exact path='/login/patient' element={<LoginPatient/>}></Route>
            <Route exact path='/login/patient/forgotpassword' element={<ForgotPassword/>}></Route>
-
-            <AuthenticatedRoute  path="/dashboard/patient/:username" element={<PatientDashboard />}></AuthenticatedRoute> 
+          
+            <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
            
-            <AuthenticatedRoute  path="/dashboard/update-patient/:username" element={<UpdatePatient/>}></AuthenticatedRoute>
+            <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
+            <Route exact path="/dashboard/patient/profile/:username" element={<ProfilePatient/>}></Route>
+            <Route exact path="/dashboard/update-patient/:username" element={<UpdatePatient/>}></Route>
 
-            <AuthenticatedRoute  path="/dashboard/doctor/sendprescription/:username" element={<SendPrescription/>}></AuthenticatedRoute>
+            <Route exact path="/dashboard/doctor/sendprescription/:username" element={<SendPrescription/>}></Route>
 
-            <AuthenticatedRoute  path='/dashboard/prescription' element={<Prescription/>}></AuthenticatedRoute>
-            <AuthenticatedRoute  path='/dashboard/treatment' element={<Treatment/>}></AuthenticatedRoute>
+            <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
+            <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
 
-            <AuthenticatedRoute  path='/bookappointment' element={<BookAppointment/>}></AuthenticatedRoute>
-            <AuthenticatedRoute  path='/bookappointment/showdoctor/:speciality' element={<ShowDoctor/>}></AuthenticatedRoute>
-            <AuthenticatedRoute  path='/bookappointment/showhospital/:cityName' element={<ShowHospital/>}></AuthenticatedRoute>
+            <Route exact path='/bookappointment' element={<BookAppointment/>}></Route>
+            <Route exact path='/bookappointment/showdoctor/:speciality' element={<ShowDoctor/>}></Route>
+            <Route exact path='/bookappointment/showhospital/:cityName' element={<ShowHospital/>}></Route>
             
            
            <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>

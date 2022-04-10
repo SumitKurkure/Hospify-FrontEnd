@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link,useParams,useNavigate } from 'react-router-dom'
-
+import { Link,useParams,useNavigate,Navigate } from 'react-router-dom'
 const SendPrescription = () => {
   
 const[prescription,setPrescription] = useState({ patientUsername : "", medicineFirst: "",medicineSecond :"",labTestName: "",dose_per_day:"",visit_after_days:""});
@@ -36,6 +35,7 @@ const handleInput=(e)=>{
 
 }
   return (
+      <div>  { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
     <div className='container'>
       <form action="" className='form-group h-75 w-50 border shadow'>
         Patient UserName<input type="text" class="form-control border-dark" name='patientUsername' placeholder='enter the patient Name' onChange={handleInput}/>
@@ -53,6 +53,7 @@ const handleInput=(e)=>{
         <button className='btn btn-primary btn-lg' onClick={sendPrescription}>Send Prescription</button>
       </form>
     </div>
+}</div>
   )
 }
 

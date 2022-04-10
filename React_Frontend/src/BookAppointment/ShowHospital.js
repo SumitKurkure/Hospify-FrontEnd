@@ -8,6 +8,9 @@ const ShowHospital = () => {
   const[hospList,setHospList]= useState([]);
     var { cityName } = useParams();
   
+    useEffect(()=>{
+        showHospital();
+    })
     const showHospital= async (e)=>{
       e.preventDefault();
       await axios.get("http://localhost:8080/bookappointment/showhospital/"+cityName).then((Response)=>{
