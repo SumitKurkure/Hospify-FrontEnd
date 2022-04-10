@@ -2,7 +2,7 @@ import axios from 'axios';
 import React , {useState , useEffect} from 'react'
 import { useParams } from 'react-router';
 import UpdatePatient from './UpdatePatient'
-import { Link } from 'react-router-dom'
+import { Link,Navigate } from 'react-router-dom'
 
 const ProfilePatient = () => {
 
@@ -25,6 +25,9 @@ const getPatientDetails = async () =>
 console.log(patient);
 
   return (
+    <div>
+       { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
+    
        <div>
            <h2 className="text-center mt-5">Patient Profile</h2>
         <table class="table table-striped table-hover">
@@ -56,6 +59,8 @@ console.log(patient);
         </tbody>
       </table>
     </div>
+  }
+</div>
   )
 }
 

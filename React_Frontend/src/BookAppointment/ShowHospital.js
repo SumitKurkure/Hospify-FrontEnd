@@ -1,5 +1,5 @@
 import React, { useEffect ,useState } from 'react'
-import {useNavigate,useParams } from 'react-router-dom'
+import {useNavigate,useParams,Navigate } from 'react-router-dom'
 import axios from 'axios'
 
 const ShowHospital = () => {
@@ -27,6 +27,7 @@ const ShowHospital = () => {
 
 
   return (
+    <div> { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> : 
     <div>
         <button onClick={showHospital}>Show Hospital</button>
         <div>
@@ -56,7 +57,8 @@ const ShowHospital = () => {
   </tbody>
 </table>
         </div>
-    </div>
+    </div>}
+  </div>
   )
 }
 

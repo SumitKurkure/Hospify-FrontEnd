@@ -2,7 +2,7 @@ import axios from 'axios';
 import React , {useState , useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router';
 import UpdatePatient from './UpdatePatient'
-import { Link } from 'react-router-dom'
+import { Link ,Navigate} from 'react-router-dom'
 
 const ProfilePatient = () => {
 
@@ -60,6 +60,7 @@ const handleInput=(e)=>{
 console.log(patient);
 
   return (
+    <div> { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
       <div className="container">
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">Edit Patient</h2>
@@ -137,7 +138,8 @@ console.log(patient);
           <button type='submit' className="btn btn-warning btn-block">Update Profile</button>
         </form>
       </div>
-    </div>
+    </div>}
+  </div>
   )
 }
 

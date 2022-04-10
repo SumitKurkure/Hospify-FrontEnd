@@ -25,7 +25,6 @@ const ShowDoctor = () => {
 
   return (
     <div>
-        { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
         <button onClick={showHospital}>Show Doctor</button>
         <div>
         <table class="table">
@@ -60,7 +59,7 @@ const ShowDoctor = () => {
   </tbody>
 </table>
         </div>
-}</div>
+</div>
   )
 }
 
