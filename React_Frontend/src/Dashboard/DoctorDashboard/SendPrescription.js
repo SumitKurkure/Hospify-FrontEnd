@@ -4,7 +4,7 @@ import { Link,useParams,useNavigate } from 'react-router-dom'
 
 const SendPrescription = () => {
   
-const[prescription,setPrescription] = useState({ pusername : "", medicineFirst: "",medicineSecond :"",labTestName: "",dosePerDay:"",dayToVist:""});
+const[prescription,setPrescription] = useState({ patientUsername : "", medicineFirst: "",medicineSecond :"",labTestName: "",dose_per_day:"",visit_after_days:""});
 
     var {username} = useParams();
 
@@ -14,7 +14,7 @@ const sendPrescription=  (e)=>{
     e.preventDefault();
     console.log(prescription);
    axios.post(`http://localhost:8080/dashboard/doctor/sendprescription/${username}`,{
-    pusername : prescription.pusername,  medicineFirst: prescription.medicineFirst , medicineSecond : prescription.medicineSecond,labTestName: prescription.labTestName,dosePerDay:prescription.dosePerDay,dayToVist:prescription.dayToVist,
+    patientUsername : prescription.patientUsername,  medicineFirst: prescription.medicineFirst , medicineSecond : prescription.medicineSecond,labTestName: prescription.labTestName,dose_per_day:prescription.dose_Per_Day, visit_after_days:prescription.visit_after_days,
   }).then((Response)=>{
     
     console.log(Response.data);
@@ -38,7 +38,7 @@ const handleInput=(e)=>{
   return (
     <div className='container'>
       <form action="" className='form-group h-75 w-50 border shadow'>
-        Patient UserName<input type="text" class="form-control border-dark" name='pusername' placeholder='enter the patient Name' onChange={handleInput}/>
+        Patient UserName<input type="text" class="form-control border-dark" name='patientUsername' placeholder='enter the patient Name' onChange={handleInput}/>
         <p></p>
         Medicine Name 1<input type="text" class="form-control border-dark" name="medicineFirst" onChange={handleInput}/>
         <p></p>
@@ -46,9 +46,9 @@ const handleInput=(e)=>{
         <p></p>
         LabTestName<input type="text" class="form-control border-dark" name='labTestName' placeholder='enter the lab Test' onChange={handleInput}/>
         <p></p>
-        Dose/Day<input type="text" class="form-control border-dark" name='dosePerDay' placeholder='enter the doses per day'onChange={handleInput}/>
+        Dose/Day<input type="text" class="form-control border-dark" name='dose_per_day' placeholder='enter the doses per day'onChange={handleInput}/>
         <p></p>
-        Visit After<input type="text" class="form-control border-dark" name='dayToVist' placeholder='enter the days after visit' className='mb-3 ' onChange={handleInput}/>
+        Visit After<input type="text" class="form-control border-dark" name='visit_after_days' placeholder='enter the days after visit' className='mb-3 ' onChange={handleInput}/>
         <p></p>
         <button className='btn btn-primary btn-lg' onClick={sendPrescription}>Send Prescription</button>
       </form>

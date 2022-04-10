@@ -19,11 +19,11 @@ class Authenticate extends Component
 
         if(user === null)
         {
-        return "false";
+        return false;
         }
         else
         {
-        return "true";
+        return true;
         }
     }
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { NavLink,Link,useNavigate ,useParams} from 'react-router-dom';
+import { NavLink,Link,useNavigate ,useParams,Navigate} from 'react-router-dom';
 import Authenticate from '../../Login/Authenticate';
 import LoginPatient from '../../Login/LoginPatient';
 import './PatientDashboard.css'
@@ -9,6 +9,7 @@ function PatientDashboard()
 {
     const logout =()=>{
     Authenticate.logout();
+    navigate("/login/patient",{replace:true})
     }
 
     var { username } = useParams();
@@ -21,6 +22,7 @@ function PatientDashboard()
     return(
         
         <div>
+            { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
             <div class="d-flex" id="wrapper">
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
@@ -191,7 +193,7 @@ function PatientDashboard()
 
             </div>
         </div>
-    </div>
+    </div>}
         </div>
     )
  
