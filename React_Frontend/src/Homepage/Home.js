@@ -22,6 +22,8 @@ const Home=()=>
                             <Link to="/login/patient" className='btn btn-primary rounded-pill px-5 mb-4 glass btn-lg'>Book appointment</Link>
                             <Link to='/' className='btn btn-secondary rounded-pill px-5 mb-4 glass1'>Buy Medicine</Link>
                             <Link to='/' className='btn btn-danger rounded-pill px-5 mb-4 glass2'>Book LabTest</Link>
+                            <Link to='/' className='btn btn-danger rounded-pill px-5 mb-4 glass2'>Check Hospital Data</Link>
+
                     </div> 
                     </div>
                     <div class="col-md-5  ">

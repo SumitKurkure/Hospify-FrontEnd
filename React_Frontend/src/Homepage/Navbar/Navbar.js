@@ -17,7 +17,7 @@ const Homepage=()=>{
     <div class="collapse navbar-collapse " id="navbarNav" >
       <ul class="navbar-nav  mb-2 mb-lg-0 ms-auto data-toggle-pill">
         <li class="nav-itemlink-color ">
-          <NavLink className="nav-link  " aria-current="page" to="/">Home</NavLink>
+          <NavLink className="nav-link size-20 " aria-current="page" to="/">Home</NavLink>
         </li>
         <li class="nav-item">
           <NavLink className="nav-link " to="/about">About</NavLink>

@@ -19,7 +19,10 @@ function PatientDashboard()
     const idParamProfile=()=>{
         navigate(`/dashboard/patient/profile/${username}`)
     }
-
+   const toPrescription=()=>{
+    navigate(`/dashboard/prescription/${username}`)
+    }
+  
     return(
         
         <div>
@@ -33,10 +36,10 @@ function PatientDashboard()
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</Link>
                  <button class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={idParamProfile}><i
                         class="fas fa-map-marker-alt me-2"></i>Profile</button>
-                <Link to="/dashboard/treatment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
-                        class="fas fa-chart-line me-2"></i>Treatment</Link>
-                <Link to="/dashboard/prescription" class="list-group-item list-group-item-action bg-transparent  fw-bold"><i
-                        class="fas fa-paperclip me-2"></i>Prescription</Link>
+                {/* <Link to="/dashboard/treatment" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
+                        class="fas fa-chart-line me-2"></i>Treatment</Link> */}
+                <button  onClick={toPrescription} class="list-group-item list-group-item-action bg-transparent  fw-bold"><i
+                        class="fas fa-paperclip me-2"></i>Prescription</button>
                  <Link to="/dashboard/feedback" class="list-group-item list-group-item-action bg-transparent fw-bold"><i
                         class="fas fa-map-marker-alt me-2"></i>FeedBack</Link>
                 <Link to="/login/patient" class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={logout} ><i
@@ -65,7 +68,7 @@ function PatientDashboard()
                                 <i class="fas fa-user me-2"></i>{username}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link class="dropdown-item" to="dashboard/profile">Profile</Link></li>
+                                <li><button class="dropdown-item" onClick={idParamProfile} >Profile</button></li>
                                 <li><Link class="dropdown-item" to="/login/patient " onClick={logout}>Logout</Link></li>
                             </ul>
                         </li>
@@ -104,8 +107,9 @@ function PatientDashboard()
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Appointment</h3>
+                    
                     <div class="col">
-                       <AppointmentList/>
+                    <AppointmentList/>
                     </div>
                 </div>
 

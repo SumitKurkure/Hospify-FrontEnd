@@ -60,15 +60,15 @@ const handleInput=(e)=>{
 console.log(patient);
 
   return (
-    <div> { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
+    <div className=''> { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
       <div className="container">
-      <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit Patient</h2>
-        <form onSubmit={handleSubmit}>
+      <div className=" mx-auto  ">
+        <h2 className="text-center mb-4 mt-5 pt-5">Edit Patient</h2>
+        <form className='p-4 form-control from-group h-100 shadow border ms-5 justift-content-center' onSubmit={handleSubmit}>
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your Name"
               name="name"
               value={patient.name}
@@ -78,7 +78,7 @@ console.log(patient);
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your age"
               name="age"
               value={patient.age}
@@ -88,7 +88,7 @@ console.log(patient);
           <div className="form-group">
             <input
               type="email"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your E-mail Address"
               name="email"
               value={patient.email}
@@ -98,7 +98,7 @@ console.log(patient);
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your Phone Number"
               name="mobno"
               value={patient.mobno}
@@ -108,7 +108,7 @@ console.log(patient);
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your Address Name"
               name="address"
               value={patient.address}
@@ -118,7 +118,7 @@ console.log(patient);
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your gender Name"
               name="gender"
               value={patient.gender}
@@ -128,7 +128,7 @@ console.log(patient);
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg mb-3"
               placeholder="Enter Your Address Name"
               name="bloodgroup"
               value={patient.bloodgroup}

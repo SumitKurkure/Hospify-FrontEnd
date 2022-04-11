@@ -1,18 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useState ,useEffect } from 'react'
+import { useNavigate ,useParams } from 'react-router-dom'
+import  axios  from 'axios';
 
 const AppointmentList = () => {
   
   const navigate = useNavigate();
   const[appointment,setAppointmentList]= useState([]);
     var { username } = useParams();
-  useEffect(()=>{
 
+  useEffect(()=>{
+    showAppointment();
   },[])
-    const showHospital= async (e)=>{
-      e.preventDefault();
-      await axios.get("http://localhost:8080/dashboard/appointment/"+username).then((Response)=>{
+
+    const showAppointment=  ()=>{
+      // e.preventDefault();
+      console.log("in show appt")
+      console.log(username)
+        axios.get(`http://localhost:8080/dashboard/appointment/${username}`).then((Response)=>{
        
           console.log(Response.data)
+
           setAppointmentList(Response.data);
 
 
@@ -20,6 +27,7 @@ const AppointmentList = () => {
         console.log(err)
       })
     }
+
     console.log(appointment); 
 
 
@@ -45,7 +53,7 @@ const AppointmentList = () => {
                   <td>{item.dname}</td>
                   <td>{item.pname}</td>
                   <td>{item.fees}</td>
-                  <td>{item.appointmentdate}</td>
+                  <td>{item.appointmentDate}</td>
                   </tr>
                 )})
             }

@@ -27,6 +27,8 @@ import ForgotPassword from './Login/ForgotPassword';
 import SendPrescription from './Dashboard/DoctorDashboard/SendPrescription';
 import UpdatePatient from './Dashboard/Profile/UpdatePatient'
 import ConfirmAppointment from './BookAppointment/ConfirmAppointment';
+import Feedback from './Dashboard/PatientDashboard/Feedback'
+
 function App() 
 {
   // const navigate = useNavigate();
@@ -51,13 +53,14 @@ function App()
 
             <Route exact path="/dashboard/doctor/sendprescription/:username" element={<SendPrescription/>}></Route>
 
-            <Route exact path='/dashboard/prescription' element={<Prescription/>}></Route>
+            <Route exact path='/dashboard/prescription/:username' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
             <Route exact path='/dashboard/bookappointment/confirm/:username' element={<ConfirmAppointment/>}></Route>
 
             <Route exact path='/bookappointment' element={<BookAppointment/>}></Route>
-            <Route exact path='/bookappointment/showdoctor/:speciality' element={<ShowDoctor/>}></Route>
-            <Route exact path='/bookappointment/showhospital/:cityName' element={<ShowHospital/>}></Route>
+            <Route exact path='/dashboard/feedback' element={<Feedback/>}></Route>
+            <Route exact path="/bookappointment/showdoctor/:speciality" element={<ShowDoctor/>}></Route>
+            <Route exact path="/bookappointment/showhospital/:cityName" element={<ShowHospital/>}></Route>
             
            
            <Route exact path='/register/patient' element={<RegisterPatient/>}></Route>
