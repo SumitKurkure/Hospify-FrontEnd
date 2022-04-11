@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 const Homepage=()=>{
     return(
-<nav class="navbar navbar-expand-lg bg-gradient-light text-dark sticky-top navbar-custom">
+<nav class="navbar navbar-expand-lg bg-gradient-light text-dark sticky-top navbar-custom sticky-top">
   <div class="container-fluid">
     <Link class="navbar-brand ms-5" to="/">
       <div class="brand">
       <img src="logo.png"/>
       </div>
     </Link>
-    <button class="navbar-toggler border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarNav" >

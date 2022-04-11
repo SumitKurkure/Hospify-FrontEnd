@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link ,useNavigate } from 'react-router-dom'
+import { Link ,useNavigate ,Navigate } from 'react-router-dom'
 import ShowDoctor from './ShowDoctor';
 const BookAppointment = () => {
 
@@ -22,7 +22,7 @@ const BookAppointment = () => {
     }
 
   return (
-    
+    <div> { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> : 
     <div>
         <div class="card text-center mb-3">      
         <div class="card-body">
@@ -78,6 +78,7 @@ const BookAppointment = () => {
             </div>
           </div>
       </div>
+    </div>}
     </div>
   )
 }

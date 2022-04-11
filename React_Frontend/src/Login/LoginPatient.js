@@ -25,7 +25,7 @@ const LoginPatient =()=>{
     if(response.data === "valid")
     {
       Authenticate.loggedIn(patientLogin.username);
-      
+
       navigate(`/dashboard/patient/${patientLogin.username}`);
       setPatientLogin({username : '',password : ''})
     }

@@ -1,5 +1,5 @@
 import React, { useEffect ,useState } from 'react'
-import {useNavigate,useParams ,Navigate} from 'react-router-dom'
+import {useNavigate,useParams ,Navigate ,Link} from 'react-router-dom'
 import axios from 'axios'
 
 const ShowDoctor = () => {
@@ -24,6 +24,7 @@ const ShowDoctor = () => {
 
 
   return (
+    <div> { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> : 
     <div>
         <button onClick={showHospital}>Show Doctor</button>
         <div>
@@ -40,6 +41,7 @@ const ShowDoctor = () => {
       <th scope="col">AvailableTime</th>
       <th scope="col">Clinic Visit</th>
       <th scope="col">City</th>
+      <th scope='col'>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -48,10 +50,20 @@ const ShowDoctor = () => {
         doctorList.map((item)=>{
           return(
           <tr>
-          <td>{item.hospid}</td>
-          <td>{item.hospname}</td>
-          <td>{item.hospadd}</td>
-          <td>{item.city}</td>
+                      <td>{item.name}</td>
+                      <td>{item.hospadd}</td>
+                      <td>{item.email}</td>
+                      <td>{item.mobno}</td>
+                      <td>{item.fees}</td>
+                      <td>{item.experience}</td>
+                      <td>{item.gender}</td>
+                      <td>{item.availableTime}</td>
+                      <td>{item.clinicVisit}</td>
+                      <td>{item.city}</td>
+                      <td>
+                        <Link to={`/dashboard/bookappointment/confirm/${item.did}`} className="btn btn-primary ">BookAppointmnet</Link>
+                      </td>
+         
           </tr>
          )})
     
@@ -59,6 +71,7 @@ const ShowDoctor = () => {
   </tbody>
 </table>
         </div>
+</div>}
 </div>
   )
 }
