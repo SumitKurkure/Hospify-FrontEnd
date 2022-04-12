@@ -32,6 +32,7 @@ const RegisterPatient=()=>{
               // console.log("regiseration successfull please login")
              navigate("/login/patient")
              Message ="Registeration Successfull Please Login to Acess";
+             <div className='alert alert-success' role={alert}></div>
 
           }
           else

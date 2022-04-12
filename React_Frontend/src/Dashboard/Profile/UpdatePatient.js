@@ -46,6 +46,7 @@ const handleSubmit= async(e)=>{
     {
       console.log(Response.data)
         navigate(`/dashboard/patient/profile/${username}`);
+        <div className='alert alert-success ' role={alert}> </div>
     }
   }).catch((Error)=>{
     console.log(Error)

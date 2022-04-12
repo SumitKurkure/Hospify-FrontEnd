@@ -2,7 +2,7 @@ import React, { useState ,useEffect } from 'react'
 import { useNavigate ,useParams } from 'react-router-dom'
 import  axios  from 'axios';
 
-const AppointmentList = () => {
+const AppointmentListDoctor = () => {
   
   const navigate = useNavigate();
   const[appointment,setAppointmentList]= useState([]);
@@ -16,7 +16,7 @@ const AppointmentList = () => {
       // e.preventDefault();
       console.log("in show appt")
       console.log(username)
-        axios.get(`http://localhost:8080/dashboard/appointment/${username}`).then((Response)=>{
+        axios.get(`http://localhost:8080/dashboard/doctor/appointment/${username}`).then((Response)=>{
        
           console.log(Response.data)
 
@@ -32,19 +32,18 @@ const AppointmentList = () => {
 
 
   return (
-    <div>  
-     <div>
-        {/* <button onClick={showHospital}>Show Hospital</button> */}
+     
         <div>
         <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Dname</th>
-              <th scope="col">Pname</th>
-              <th scope="col">Paid Fees</th>
-              <th scope="col">AppointmentDate</th>
-            </tr>
-          </thead>
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Dname</th>
+                <th scope="col">Pname</th>
+                <th scope="col">Paid Fees</th>
+                <th scope="col">AppointmentDate</th>
+                <th scope='col'>Appointment Type</th>
+                </tr>
+            </thead>
           <tbody>
             {
                 appointment.map((item)=>{
@@ -54,15 +53,15 @@ const AppointmentList = () => {
                   <td>{item.pname}</td>
                   <td>{item.fees}</td>
                   <td>{item.appointmentDate}</td>
+                  <td>{item.appointmentType}</td>
                   </tr>
                 )})
             }
           </tbody>
         </table>
         </div>
-    </div>
-    </div>
+ 
   )
 }
 
-export default AppointmentList
+export default AppointmentListDoctor

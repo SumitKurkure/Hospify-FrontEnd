@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { NavLink,Link,useNavigate ,useParams,Navigate} from 'react-router-dom';
 import Authenticate from '../../Login/Authenticate';
 import LoginPatient from '../../Login/LoginPatient';
-import AppointmentList from '../DoctorDashboard/AppointmentList';
+import AppointmentListDoctor from '../DoctorDashboard/AppointmentListDoctor';
+import AppointmentList from '../PatientDashboard/AppointmentList';
 import './PatientDashboard.css'
 
 function PatientDashboard()

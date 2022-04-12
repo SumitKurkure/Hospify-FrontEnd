@@ -22,9 +22,10 @@ const LoginDoctor =( )=>{
 
     if(response.data === "valid")
     {
-    //   sessionStorage.setItem("login-info",JSON.stringify(doctorLogin.username));
-      // window.location=`/dashboard/${doctorLogin.username}`;
+      sessionStorage.setItem("login-info",doctorLogin.username);
+    
       setDoctorLogin({username : '',password : ''})
+    
       navigate(`/dashboard/doctor/${doctorLogin.username}`);
       
       
@@ -49,6 +50,7 @@ const handleInput=(e)=>{
 
    
     return(
+    
       <div class="container-fluid d-flex justify-content-center align-items-center">
         <form className='m-5 shadow bg-body' onSubmit={handleSubmit}>
           {/* <span>{error}</span> */}

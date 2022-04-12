@@ -11,11 +11,9 @@ const LoginPatient =()=>{
 
   const navigate = useNavigate();
 
-
-       
  const handleSubmit=async (e)=>{
   e.preventDefault();
-  
+    console.log("in handle submit")
     await axios.post("http://localhost:8080/login/patient",{
       username : patientLogin.username , 
       password : patientLogin.password,

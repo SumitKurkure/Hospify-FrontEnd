@@ -35,7 +35,7 @@ const handleInput=(e)=>{
 
 }
   return (
-      <div>  { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
+      <div>  { !sessionStorage.getItem("login-info") ? <Navigate to="/login/doctor/" /> :
     <div className='container'>
       <form action="" className='form-group h-75 w-50 border shadow'>
         Patient UserName<input type="text" class="form-control border-dark" name='patientUsername' placeholder='enter the patient Name' onChange={handleInput}/>

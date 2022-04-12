@@ -1,13 +1,18 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { Link ,useParams,useNavigate ,Navigate} from 'react-router-dom';
 import Authenticate from '../../Login/Authenticate';
 import LoginDoctor from '../../Login/LoginDoctor';
 import '../PatientDashboard/PatientDashboard.css';
-import SendPrescription from './SendPrescription';
+import AppointmentList from '../PatientDashboard/AppointmentList';
+import SendPrescription from './SendPrescription'
+import AppointmentListDoctor from './AppointmentListDoctor'
 function DoctorDashboard ()
 {
   const[flag,setFlag] = useState(false);
   var {username} = useParams();
+  const[avtTime,setAvtTime] = useState({ availableTime : " "});
+
   var navigate = useNavigate();
 
   
@@ -20,10 +25,44 @@ function DoctorDashboard ()
      navigate(`/dashboard/doctor/sendprescription/${username}`);
     }
 
+    const setAvailableTime =(e)=>{
+        e.preventDefault();
+        setFlag(true);
+        axios.post(`http://localhost:8080/dashboard/setavailabletime/${username}`,{
+            availableTime :avtTime.availableTime,
+        }).then((Response)=>{
+            console.log(Response.data);
+            if(Response.data === "updated")
+            {
+                // return(
+                //     <div>
+                //         <div>Avilable Time Changed*</div>
+                //     </div>
+                // )
 
+            }
+        })
+    }
+    const handleInput=(e)=>{
+        var name = e.target.name;
+        var value = e.target.value;
+        setAvtTime({...avtTime,[name] : value})
+      
+      }
+if(flag)
+    return(
+        <div className='container'>
+            <form onSubmit={setAvailableTime} className="shadow border h-50 ">
+                <label className='mb-4 '>Change Available Time</label>
+                <input className='mb-4' type="text" name='availableTime' placeholder='Enter the Available Time' onChange={handleInput}/>
+                <button className='btn btn-primary btn-sm '>Update Available Time</button>
+            </form>
+        </div>
+    )
+else
   return (
     <div>
-          { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
+          { !sessionStorage.getItem("login-info") ? <Navigate to="/login/doctor/" /> :
         <div class="d-flex" id="wrapper">
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
@@ -68,69 +107,30 @@ function DoctorDashboard ()
             </nav>
 
             <div class="container-fluid px-4">
-                <div class="row g-3 my-2">
+                <div class="row g-3 my-2 ms-5">
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white d-flex justify-content-around align-items-center rounded">
+
+                    <div class="col-md-4">
+                        <div class="btn btn-primary me-5 d-flex justify-content-around align-items-center rounded">
                             <div>
-                              <Link className="btn btn-transparent btn-lg " to="/patientlist">Patient List</Link>
+                                <button class="btn btn-lg text-light" onClick={sendPrescription}>Send Prescription</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white  d-flex justify-content-around align-items-center rounded">
+                    <div class="col-md-4">
+                        <div class="btn btn-primary me-5 d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <p class="btn btn-transparent btn-lg">Appointment List</p>
-                            </div>
-            
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <button class="btn btn-lg btn-transparent" onClick={sendPrescription}>Send Prescription</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <p class="btn btn-lg btn-transparent">Set Available Time</p>
+                                <button class="btn btn-lg text-light" onClick={setAvailableTime}>Set Available Time</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Appointment</h3>
-                    <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col" width="50">#</th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Laptop</td>
-                                    <td>Kenny</td>
-                                    <td>$750</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h2 className='mb-4'> Appointments </h2>
+                    <h4 class="fs-4 mb-3">
+                        <AppointmentListDoctor/>
+                    </h4>
                 </div>
 
             </div>

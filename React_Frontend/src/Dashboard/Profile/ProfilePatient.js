@@ -26,7 +26,7 @@ console.log(patient);
 
   return (
     <div className='container '>
-      {/* <div className='col-3'>
+      <div className='col-3'>
       <div class="user-profile border shadow p-3">
 				<div class="user-avatar">
 					<img height={100} width={100} className="ms-5 mb-2" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin"/>
@@ -37,8 +37,8 @@ console.log(patient);
       </div>
       <div className='col-9 '>
       
-      </div> */}
-       { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
+      </div>
+       {/* { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
     
     <div>
         <h2 className="text-center mt-5">Patient Profile</h2>
@@ -72,6 +72,7 @@ console.log(patient);
    </table>
  </div>
 }
+  </div> */}
   </div>
   )
 }

@@ -33,18 +33,13 @@ const ShowHospital = () => {
         <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Hosp Id</th>
       <th scope="col">Hosp Name</th>
       <th scope="col">Address </th>
-      <th scope="col">City</th>
-      <th scope="col">Email</th>
       <th scope="col">Mobile</th>
       <th scope="col">IcuBed</th>
       <th scope="col">NormalBed</th>
       <th scope="col">labAvailableOrNot</th>
       <th scope="col">treatmentType</th>
-      <th scope="col">Gov/Private</th>
-      <th scope="col">AvailableTime</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -54,20 +49,15 @@ const ShowHospital = () => {
         hospList.map((item)=>{
           return(
           <tr>
-          <td>{item.hospid}</td>
           <td>{item.hospname}</td>
           <td>{item.hospadd}</td>
-          <td>{item.city}</td>
-          <td>{item.email}</td>
           <td>{item.mobileno}</td>
           <td>{item.icubed}</td>
           <td>{item.normalbed}</td>
           <td>{item.labavailable_or_not}</td>
           <td>{item.treatmenttype}</td>
-          <td>{item.gov_or_private}</td>
-          <td>{item.availabletime}</td>
           <td>
-            <Link to={`/dashboard/bookappointment/confirm/${item.hospid}`} className='btn btn-success'>Book Appointment</Link>
+            <Link to={`/bookappointment/showdoctor/${item.hospid}`} className='btn btn-success'>Book Appointment</Link>
           </td>
           </tr>
          )})
