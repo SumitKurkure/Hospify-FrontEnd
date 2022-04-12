@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
+
 const ConfirmAppointment = () => {
 
   var { id } = useParams();
 
     const navigate = useNavigate();
     const[appt,setAppt]= useState({pname :"",appointmentDate :"",appointmentType :"", });
-    const[flag,setFlag] = useState(false);
     const[doctor,setDoctor] = useState({ });
 
     useEffect(()=>{
@@ -17,9 +17,8 @@ const ConfirmAppointment = () => {
     const SshowDoctor= async ()=>{
       console.log(id)
       await axios.get(`http://localhost:8080/bookappointment/showdoctorbyid/${id}`).then((Response)=>{
-          console.log(Response.data)
+          console.log(Response.data);
           setDoctor(Response.data);
-
 
       }).catch((err)=>{
         console.log(err)
@@ -28,18 +27,20 @@ const ConfirmAppointment = () => {
 
     const confirmAppt= async (e)=>{
       e.preventDefault();
+
+      alert("Appointmet Booked Successfully")
       console.log(appt);
       await axios.post(`http://localhost:8080/bookappointment/appointment/confirm/${id}`,{
         pname: appt.pname,
         appointmentDate : appt.appointmentDate,
         appointmentType : appt.appointmentType,
       }).then((Response)=>{
-          console.log(Response.data)
+
           if(Response.data === "sended")
           {
-            return(
-              <div className='alert alert-success' role={alert}>Appointment Booked Successfully</div>
-             )
+            console.log(Response.data)
+
+    
           }
       
 
@@ -56,9 +57,11 @@ const ConfirmAppointment = () => {
     
       console.log(appt); 
 
+
       return(
+        
         <div className='container '>
-          <form className='form-control'>
+          
           <div className='d-flex'>
           <div class="card text-center shadow ">
             <div class="card-header bg-primary text-light">
@@ -95,7 +98,6 @@ const ConfirmAppointment = () => {
           </div>
         </div>
         </div>
-        </form>
     </div>        
    )
 
