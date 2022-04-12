@@ -55,7 +55,7 @@ function App()
 
             <Route exact path='/dashboard/prescription/:username' element={<Prescription/>}></Route>
             <Route exact path='/dashboard/treatment' element={<Treatment/>}></Route>
-            <Route exact path='/dashboard/bookappointment/confirm/:username' element={<ConfirmAppointment/>}></Route>
+            <Route exact path='/dashboard/bookappointment/confirm/:id' element={<ConfirmAppointment/>}></Route>
 
             <Route exact path='/bookappointment' element={<BookAppointment/>}></Route>
             <Route exact path='/dashboard/feedback' element={<Feedback/>}></Route>

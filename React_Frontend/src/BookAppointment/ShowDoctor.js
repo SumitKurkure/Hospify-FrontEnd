@@ -12,20 +12,20 @@ const ShowDoctor = () => {
 
     useEffect(()=>{
       callCondition();
-    },[ ])
+    },[])
 
     const callCondition=()=>{
 
       if(speciality.length != 1)
       {
-        SshowDoctor(); 
+        showDoctor(); 
       }
       else
       {
       ShowDoctorInHosp();
       }
     }
-    const SshowDoctor= async ()=>{
+    const showDoctor= async ()=>{
       await axios.get("http://localhost:8080/bookappointment/showdoctorbyspeciality/"+speciality).then((Response)=>{
           console.log(Response.data)
           setDoctorList(Response.data);
@@ -37,8 +37,8 @@ const ShowDoctor = () => {
     }
     console.log(doctorList); 
 
-    const ShowDoctorInHosp= async (e)=>{
-      await axios.get(`http://localhost:8080/bookappointment/showdoctorbyid/${speciality}`).then((Response)=>{
+    const ShowDoctorInHosp= async ()=>{
+      await axios.get(`http://localhost:8080/bookappointment/showdoctorbyhospid/${speciality}`).then((Response)=>{
        
           console.log(Response.data)
           setDoctorList(Response.data);
@@ -52,7 +52,7 @@ const ShowDoctor = () => {
 
   return (
     <div> 
-      { !sessionStorage.getItem("login-info") ? <Navigate to="/login/doctor/" /> : 
+      { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> : 
     
     <div>
         <h2 className='ms-5 ps-5'>Doctor List</h2>

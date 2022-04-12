@@ -4,35 +4,19 @@ import axios from 'axios';
 const ConfirmAppointment = () => {
 
   var { id } = useParams();
-  
+
     const navigate = useNavigate();
-    const[appt,setAppt]= useState();
+    const[appt,setAppt]= useState({pname :"",appointmentDate :"",appointmentType :"", });
     const[flag,setFlag] = useState(false);
     const[doctor,setDoctor] = useState({ });
 
-
-      const BookAppointment= async (e)=>{
-        e.preventDefault();
-        await axios.post("http://localhost:8080/bookappointment/confirm/"+id,{
-            
-        })
-        .then((Response)=>{
-
-            console.log(Response.data)
-            setAppt(Response.data);
-            setFlag(true);
-               
-        }).catch((err)=>{
-          console.log(err)
-        })
-    }
     useEffect(()=>{
       SshowDoctor();
-    },[ ])
+    },{ })
 
     const SshowDoctor= async ()=>{
       console.log(id)
-      await axios.get("http://localhost:8080/bookappointment/showdoctorbyid/"+id).then((Response)=>{
+      await axios.get(`http://localhost:8080/bookappointment/showdoctorbyid/${id}`).then((Response)=>{
           console.log(Response.data)
           setDoctor(Response.data);
 
@@ -41,68 +25,79 @@ const ConfirmAppointment = () => {
         console.log(err)
       })
     }
+
+    const confirmAppt= async (e)=>{
+      e.preventDefault();
+      console.log(appt);
+      await axios.post(`http://localhost:8080/bookappointment/appointment/confirm/${id}`,{
+        pname: appt.pname,
+        appointmentDate : appt.appointmentDate,
+        appointmentType : appt.appointmentType,
+      }).then((Response)=>{
+          console.log(Response.data)
+          if(Response.data === "sended")
+          {
+            return(
+              <div className='alert alert-success' role={alert}>Appointment Booked Successfully</div>
+             )
+          }
+      
+
+      }).catch((err)=>{
+        console.log(err)
+      })
+    }
+    const handleInput=(e)=>{
+      var name = e.target.name;
+      var value = e.target.value;
+      setAppt({...appt,[name] : value})
+    
+    }
+    
       console.log(appt); 
 
       return(
-        <div className='container'>
-              <div className='d-flex flex-row border-rounded '>
-                <div className='col-md-6 bg-light me-4'>
-                  <form className='shadow border' action="">
-                  Dr Name - {doctor.dname}
-                  <p></p>
-                  Expertise -{doctor.speciality}
-                  <p></p>
-                  Fees - {doctor.fees}
-                  <p></p>
-                  Education - {doctor.degree}
-                  <p></p>
-                  Experience -  {doctor.experience}   
-                  </form>
-                </div>
-                <div className='col-md-6'>
-                    <div class="tab-content">
-                            <form  onSubmit={BookAppointment} className="shadow border">
-                                <div class="form-group"> <label for="username">
-                                        <h6>Card Owner</h6>
-                                    </label> <input type="text" name="username" placeholder="Card Owner Name" required class="form-control "/> </div>
-                                <div class="form-group"> <label for="cardNumber">
-                                        <h6>Card number</h6>
-                                         </label>
-                                    <div class="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number" class="form-control " required/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="form-group"> <label><span class="hidden-xs">
-                                                    <h6>Expiration Date</h6>
-                                                </span></label>
-                                            <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required/> <input type="number" placeholder="YY" name="" class="form-control" required/> </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
-                                                <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                            </label> <input type="text" required class="form-control"/> </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer"> 
-                                <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm & Pay </button>
-                                </div>
-                            </form>
-                        </div>
+        <div className='container '>
+          <form className='form-control'>
+          <div className='d-flex'>
+          <div class="card text-center shadow ">
+            <div class="card-header bg-primary text-light">
+              Dr Details
+            </div>
+            <div class="card-body">
+            <h5 class="align-text-left ">Dr Name : <span className='text-muted'>{doctor.name}</span> </h5>
+                <h5 class="">Expertise : <span className='text-muted'>{doctor.speciality}</span></h5>
+                <h5 class="">Education : <span className='text-muted'>{doctor.degree}</span></h5>
+                <h5 class="align-text-left">Fees : <span className='text-muted'>{doctor.fees}</span></h5>
+                <h5 class="">Experience : <span className='text-muted'> {doctor.experience}</span></h5>
+                <h5>Patient Username: <input onChange={handleInput} className='mt-2' type="text" placeholder='Enter the Patient Username' name='pname'/></h5>
+                <h5>Appointment Date : <input onChange={handleInput} className='mt-2' type="date" name='appointmentDate' /></h5>
+                <h5>Apppointment Type : <input onChange={handleInput} className='mt-2' type="text" name='appointmentType' placeholder='Clinic Visit/ video Consult' /></h5>
+            </div>
+            <div class="card-footer text-muted">
+              Doctor Avilable At Tommoror 10 am
+            </div>
+        </div>
 
+        <p className='me-5'></p>
 
-
-
-
-
-
-
-
-                </div>
-              </div>  
+        <div class="card text-center shadow ">
+          <div class="card-header bg-primary text-light">
+            Payment Info
           </div>
-      )
+          <div class="card-body">
+               <h5 class="card-title">Pay Doctor Fees : {}</h5>
+                 <span className='d-flex mb-3'><h5 class="card-title" className='me-3'>Card Number : </h5> <input type="text" placeholder='enter card number' name="" id="" /></span>
+                 <span className='d-flex mb-3'><h5 class="card-title" className='me-3'>Card Exp Date :</h5> <input type="text" placeholder='enter exp date' /></span>
+                 <span className='d-flex mb-3'><h5 class="card-title" className='me-3'>Card Holder Name :</h5> <input type="text" placeholder='enetr card holder name' /></span>
+                 <span className='d-flex mb-3'><h5 class="card-title" className='me-3'>CVV : </h5> <input type="text" placeholder='enter the cvv' /></span>
+            <button type='submit' class="btn btn-primary mt-3" onClick={confirmAppt}>Confirm & Pay</button>
+          </div>
+        </div>
+        </div>
+        </form>
+    </div>        
+   )
 
 }
 
