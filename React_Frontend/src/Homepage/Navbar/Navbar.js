@@ -8,27 +8,27 @@ const Homepage=()=>{
   <div class="container-fluid">
     <Link class="navbar-brand ms-5" to="/">
       <div class="brand">
-      <img src="logo.png"/>
+      <img src="logo1.png"/>
       </div>
     </Link>
     <button class="navbar-toggler border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon text-dark"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarNav" >
       <ul class="navbar-nav  mb-2 mb-lg-0 ms-auto data-toggle-pill">
         <li class="nav-itemlink-color ">
-          <NavLink className="nav-link size-20 " aria-current="page" to="/">Home</NavLink>
+          <NavLink className="nav-link size-20 custom-text " aria-current="page" to="/">Home</NavLink>
         </li>
         <li class="nav-item">
-          <NavLink className="nav-link " to="/about">About</NavLink>
+          <NavLink className="nav-link custom-text" to="/about">About</NavLink>
         </li>
         <li class="nav-item link-color">
-          <NavLink className="nav-link" exact to="/contact" >
+          <NavLink className="nav-link custom-text" exact to="/contact" >
             Contact
           </NavLink>
         </li>
         <li class="nav-item link-color">
-          <NavLink className="nav-link " to='/help'>Help</NavLink>
+          <NavLink className="nav-link custom-text" to='/help'>Help</NavLink>
         </li>
       </ul>
          <div class="dropdown me-5 ms-5">
