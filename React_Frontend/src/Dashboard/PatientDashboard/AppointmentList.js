@@ -38,7 +38,7 @@ const AppointmentList = () => {
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Dname</th>
+              <th scope="col"> Dname</th>
               <th scope="col">Pname</th>
               <th scope="col">Paid Fees</th>
               <th scope="col">AppointmentDate</th>
@@ -55,7 +55,6 @@ const AppointmentList = () => {
                   <td>{item.fees}</td>
                   <td>{item.appointmentDate}</td>
                   <td>{item.appointmentType}</td>
-
                   </tr>
                 )})
             }

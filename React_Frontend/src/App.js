@@ -28,6 +28,8 @@ import SendPrescription from './Dashboard/DoctorDashboard/SendPrescription';
 import UpdatePatient from './Dashboard/Profile/UpdatePatient'
 import ConfirmAppointment from './BookAppointment/ConfirmAppointment';
 import Feedback from './Dashboard/PatientDashboard/Feedback'
+import UpdateDoctor from './Dashboard/Profile/UpdateDoctor'
+import ProfileDoctor from './Dashboard/Profile/ProfileDoctor'
 
 function App() 
 {
@@ -48,6 +50,9 @@ function App()
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
            
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
+            <Route exact path="/dashboard/doctor/profile/:username" element={<ProfileDoctor/>}></Route>
+            <Route exact path="/dashboard/doctor/profile/update/:username" element={<UpdateDoctor/>}></Route>
+
             <Route exact path="/dashboard/patient/profile/:username" element={<ProfilePatient/>}></Route>
             <Route exact path="/dashboard/update-patient/:username" element={<UpdatePatient/>}></Route>
 

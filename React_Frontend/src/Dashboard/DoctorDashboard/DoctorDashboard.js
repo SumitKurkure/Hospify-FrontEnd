@@ -7,6 +7,7 @@ import '../PatientDashboard/PatientDashboard.css';
 import AppointmentList from '../PatientDashboard/AppointmentList';
 import SendPrescription from './SendPrescription'
 import AppointmentListDoctor from './AppointmentListDoctor'
+
 function DoctorDashboard ()
 {
   const[flag,setFlag] = useState(false);
@@ -69,11 +70,11 @@ else
                     lass="fas fa-user-secret me-2"></i>Hospify</div>
             <div class="list-group list-group-flush my-3">
                 <Link to="/dashboard" class="list-group-item list-group-item-action bg-transparent active"><i
-                        class="fas fa-tachometer-alt me-2"></i>Dashboard</Link>
-                 <Link to="/dashboard/profile" class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
-                        class="fas fa-map-marker-alt me-2"></i>Profile</Link>
+                        class="fa fa-tachometer-alt me-2"></i>Dashboard</Link>
+                 <Link to={`/dashboard/doctor/profile/${username}`}  class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
+                        class="fa fa-user me-2"></i>Profile</Link>
                 <Link to="/login/doctor" class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={logout} ><i
-                        class="fas fa-power-off me-2"></i>Logout</Link>
+                        class="fa fa-power-off me-2"></i>Logout</Link>
             </div>
         </div>
 
@@ -98,7 +99,7 @@ else
                                 <i class="fas fa-user me-2"></i>{username}
                             </Link>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link class="dropdown-item" to="/dashboard/doctor/profile/">Profile</Link></li>
+                                <li><Link class="dropdown-item" to={`/dashboard/doctor/profile/${username}`}>Profile</Link></li>
                                 <li><Link class="dropdown-item" to="/login/doctor" onClick={logout}>Logout</Link></li>
                             </ul>
                         </li>
