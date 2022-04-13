@@ -50,6 +50,7 @@ const Prescription = () => {
           <td>{item.dose_per_day}</td>
           <td>{item.visit_after_days}</td>
           <td>{item.labTestName}</td>
+        
           </tr>
          )})
     
