@@ -30,6 +30,8 @@ import ConfirmAppointment from './BookAppointment/ConfirmAppointment';
 import Feedback from './Dashboard/PatientDashboard/Feedback'
 import UpdateDoctor from './Dashboard/Profile/UpdateDoctor'
 import ProfileDoctor from './Dashboard/Profile/ProfileDoctor'
+import LoginAdmin from './Login/AdminLogin';
+import AdminDashboard from './Dashboard/AdminDashboard';
 
 function App() 
 {
@@ -45,10 +47,12 @@ function App()
            {/* <Route exact path='/login/admin' element={}></Route> */}
            <Route exact path='/login/doctor' element={<LoginDoctor/>}></Route>
            <Route exact path='/login/patient' element={<LoginPatient/>}></Route>
+           <Route exact path='/login/admin' element={<LoginAdmin/>}></Route>
+
            <Route exact path='/login/patient/forgotpassword' element={<ForgotPassword/>}></Route>
           
             <Route exact path="/dashboard/patient/:username" element={<PatientDashboard />}></Route> 
-           
+            <Route exact path="/dashboard/admin/:username" element={<AdminDashboard />}></Route> 
             <Route exact path="/dashboard/doctor/:username" element={<DoctorDashboard/>}></Route>
             <Route exact path="/dashboard/doctor/profile/:username" element={<ProfileDoctor/>}></Route>
             <Route exact path="/dashboard/doctor/profile/update/:username" element={<UpdateDoctor/>}></Route>

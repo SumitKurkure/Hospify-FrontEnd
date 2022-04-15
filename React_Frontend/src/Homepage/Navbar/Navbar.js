@@ -1,8 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link ,Navigate ,useNavigate } from 'react-router-dom';
 import './Navbar.css';
 const Homepage=()=>{
+const navigate = useNavigate();
+  const clearSession=(e)=>{
+      e.preventDefault();
+    sessionStorage.removeItem("token")
+    sessionStorage.clear();
+    navigate("/login/patient")
+  }
     return(
 <nav class="navbar navbar-expand-lg bg-gradient-light text-dark sticky-top navbar-custom sticky-top">
   <div class="container-fluid">
@@ -31,6 +38,7 @@ const Homepage=()=>{
           <NavLink className="nav-link custom-text" to='/help'>Help</NavLink>
         </li>
       </ul>
+      { sessionStorage.getItem("token") ? <button className='btn btn-danger ms-3' onClick={clearSession}>Logout</button> :
          <div class="dropdown me-5 ms-5">
             <button class="btn btn-primary dropdown-toggle me-3 button-custom" data-bs-toggle="dropdown" aria-expanded="false">
             Login
@@ -48,6 +56,7 @@ const Homepage=()=>{
                 <li><Link class="dropdown-item" to="/register/doctor">Doctor</Link></li>
             </ul>
         </div>
+    }
     </div>
   </div>
 </nav>

@@ -63,6 +63,15 @@ console.log(doctor);
                       {doctor.email}
                       </div>
                   </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Education</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {doctor.degree}
+                      </div>
+                  </div>
                   <hr/>
                   <div class="row">
                     <div class="col-sm-3">
@@ -75,28 +84,37 @@ console.log(doctor);
                   <hr/>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
+                      <h6 class="mb-0">AvailableTime</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {doctor.hospaddress}
+                      {doctor.availableTime}
                     </div>
                   </div>
                   <hr/>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Age</h6>
+                      <h6 class="mb-0">Experience</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {doctor.age}
+                      {doctor.experience}
                     </div>
                   </div>
                   <hr/>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Blood Group</h6>
+                      <h6 class="mb-0">Clinic Visit</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {doctor.bloodgroup}
+                      {doctor.clinicVisit}
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">City</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {doctor.city}
                     </div>
                   </div>
                   <hr />

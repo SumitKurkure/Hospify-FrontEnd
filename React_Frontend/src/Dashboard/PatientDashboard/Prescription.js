@@ -37,6 +37,7 @@ const Prescription = () => {
       <th scope="col">dose/day</th>
       <th scope="col">visit after days</th>
       <th scope="col">labTestName</th>
+      <th>Prescription Date</th>
     </tr>
   </thead>
   <tbody>
@@ -50,7 +51,7 @@ const Prescription = () => {
           <td>{item.dose_per_day}</td>
           <td>{item.visit_after_days}</td>
           <td>{item.labTestName}</td>
-        
+        <td>{item.prescriptiondate}</td>
           </tr>
          )})
     

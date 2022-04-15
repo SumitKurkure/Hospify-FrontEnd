@@ -43,6 +43,7 @@ const AppointmentList = () => {
               <th scope="col">Paid Fees</th>
               <th scope="col">AppointmentDate</th>
               <th>Appointment Type</th>
+          
             </tr>
           </thead>
           <tbody>
@@ -55,6 +56,7 @@ const AppointmentList = () => {
                   <td>{item.fees}</td>
                   <td>{item.appointmentDate}</td>
                   <td>{item.appointmentType}</td>
+      
                   </tr>
                 )})
             }
