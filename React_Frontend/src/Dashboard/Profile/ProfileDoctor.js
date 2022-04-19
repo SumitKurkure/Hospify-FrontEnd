@@ -28,10 +28,10 @@ console.log(doctor);
     <div className='container-fluid w-75'>
       { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
       <div className='d-flex mt-5'>
-      <div className='col-md-4'>
+      <div className='col-md-4  '>
       {/* <div class="user-profile border shadow p-3">
 				<div class="user-avatar"> */}
-         <div class="card">
+         <div class="card ">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
 					<img height={100} width={100} className="ms-2 mb-2 " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin"/>

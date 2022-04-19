@@ -78,7 +78,7 @@ const ConfirmAppointment = () => {
                 <h5>Apppointment Type : <input onChange={handleInput} className='mt-2' type="text" name='appointmentType' placeholder='Clinic Visit/ video Consult' /></h5>
             </div>
             <div class="card-footer text-muted">
-              Doctor Avilable At Tommoror 10 am
+              Doctor Avilable At { doctor.availableTime}
             </div>
         </div>
 

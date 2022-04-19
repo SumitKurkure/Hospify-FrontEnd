@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReCAPTCHA from "react-google-recaptcha";
 import './LoginPatient.css'
 import axios from 'axios';
 import {useNavigate, Link} from 'react-router-dom'
@@ -41,6 +42,9 @@ const handleInput=(e)=>{
   setPatientLogin({...patientLogin,[name] : value})
 
 }
+const onChange=(value)=>{
+  console.log("Captcha value:", value);
+}
 
    
     return(
@@ -56,7 +60,12 @@ const handleInput=(e)=>{
             <input type="password"  class="form-control" placeholder="Password" name='password' required onChange={handleInput}/>
           </div>
         <button type="submit" class="btn btn-primary rounded-pill mb-3  w-75" >Login</button>
-        
+        <div>
+        <ReCAPTCHA
+        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+        onChange={onChange}
+             />
+        </div>
         <div className='form-group '>
         <Link to={'/login/patient/forgotpassword'} class=""> Forgot Password</Link>
         <p></p>

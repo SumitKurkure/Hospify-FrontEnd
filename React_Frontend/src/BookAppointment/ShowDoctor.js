@@ -67,7 +67,8 @@ const ShowDoctor = () => {
       <th scope="col">Gender</th>
       <th scope="col">AvailableTime</th>
       <th scope="col">Clinic Visit</th>
-      <th scope='col'>Action</th>
+      <th scope='col'>City</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>

@@ -29,6 +29,7 @@ function DoctorDashboard ()
     const setAvailableTime =(e)=>{
         e.preventDefault();
         setFlag(true);
+        alert("Avilable Time Changed Succesfully")
         axios.post(`http://localhost:8080/dashboard/setavailabletime/${username}`,{
             availableTime :avtTime.availableTime,
         }).then((Response)=>{
@@ -65,23 +66,23 @@ else
     <div>
           { !sessionStorage.getItem("login-info") ? <Navigate to="/login/doctor/" /> :
         <div class="d-flex" id="wrapper">
-        <div class="bg-white" id="sidebar-wrapper">
+        <div class="bg-dark " id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     lass="fas fa-user-secret me-2"></i>Hospify</div>
             <div class="list-group list-group-flush my-3">
                 <Link to="/dashboard" class="list-group-item list-group-item-action bg-transparent active"><i
                         class="fa fa-tachometer-alt me-2"></i>Dashboard</Link>
-                 <Link to={`/dashboard/doctor/profile/${username}`}  class="list-group-item list-group-item-action bg-transparent fw-bold" ><i
-                        class="fa fa-user me-2"></i>Profile</Link>
-                <Link to="/login/doctor" class="list-group-item list-group-item-action bg-transparent fw-bold" onClick={logout} ><i
-                        class="fa fa-power-off me-2"></i>Logout</Link>
+                 <Link to={`/dashboard/doctor/profile/${username}`}  class="text-light list-group-item list-group-item-action bg-transparent fw-bold text-light" ><i
+                        class="fa fa-user me-2 text-light text-light"></i>Profile</Link>
+                <Link to="/login/doctor" class="text-light list-group-item list-group-item-action bg-transparent fw-bold" onClick={logout} ><i
+                        class="fa fa-power-off me-2 text-light"></i>Logout</Link>
             </div>
         </div>
 
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <i class="fa fa-tachometer primary-text fs-4 me-3" id="menu-toggle"></i>
                     <h2 class="fs-2 m-0">Doctor Dashboard</h2>
                 </div>
 
