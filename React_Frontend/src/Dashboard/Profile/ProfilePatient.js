@@ -31,7 +31,7 @@ console.log(patient);
       <div className='col-md-4'>
       {/* <div class="user-profile border shadow p-3">
 				<div class="user-avatar"> */}
-         <div class="card">
+         <div class="card shadow">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
 					<img height={100} width={100} className="ms-2 mb-2 " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin"/>
@@ -44,7 +44,7 @@ console.log(patient);
       </div>
       </div> 
       <div class="col-md-8">
-              <div class="card mb-3">
+              <div class="card mb-3 shadow">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">

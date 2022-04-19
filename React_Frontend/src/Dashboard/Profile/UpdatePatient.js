@@ -67,9 +67,9 @@ console.log(patient);
         <div class="container">
           { !sessionStorage.getItem("token") ? <Navigate to="/login/patient/" /> :
 
-<div class="row gutters">
-<div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 col-12">
-<div class="card h-100">
+<div class="row gutters ">
+<div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 col-12 ">
+<div class="card h-100 shadow">
 	<div class="card-body">
 		<div class="account-settings">
 			<div class="user-profile">
@@ -88,7 +88,7 @@ console.log(patient);
 </div>
 </div>
 <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
-<div class="card h-100">
+<div class="card h-100 shadow">
 	<div class="card-body">
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

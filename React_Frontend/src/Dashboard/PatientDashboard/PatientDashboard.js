@@ -80,7 +80,7 @@ function PatientDashboard()
             <div class="row g-3 my-2">
 
                 <div class="col-md-4">
-                    <div class="p-3 bg-info shadow d-flex justify-content-around align-items-center rounded">
+                    <div class="p-3 bg-primary shadow d-flex justify-content-around align-items-center rounded">
                         <div>
                           <Link className="btn btn-lg text-light" to="/bookappointment">Book Appointment</Link>
                         </div>
@@ -88,7 +88,7 @@ function PatientDashboard()
                 </div>
 
                 <div class="col-md-4">
-                    <div class="p-3 bg-info shadow  d-flex justify-content-around align-items-center rounded">
+                    <div class="p-3 bg-primary shadow  d-flex justify-content-around align-items-center rounded">
                         <div>
                             <p class="btn btn-lg text-light">Book Lab Test</p>
                         </div>
@@ -97,7 +97,7 @@ function PatientDashboard()
                 </div>
 
                 <div class="col-md-4">
-                    <div class="p-3 bg-info shadow d-flex justify-content-around align-items-center rounded">
+                    <div class="p-3 bg-primary shadow d-flex justify-content-around align-items-center rounded">
                         <div>
                             <p class="btn btn-lg text-light ">Buy Medicine</p>
                         </div>
