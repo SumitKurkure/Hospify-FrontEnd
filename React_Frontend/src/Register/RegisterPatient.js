@@ -21,7 +21,7 @@ const RegisterPatient=()=>{
       e.preventDefault();
       setFormErrors(validate(formValues));
       setIsSubmit(true);
-
+        alert("Patient Register Succesfully Login Now")
         const registerPatient = {
             name : formValues.name, username: formValues.username, email: formValues.email, password: formValues.password,mobno: formValues.mobno, address:formValues.address, bloodgroup:formValues.bloodgroup,age:formValues.age,gender:formValues.gender
         };

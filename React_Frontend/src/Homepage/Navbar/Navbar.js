@@ -4,6 +4,8 @@ import { Link ,Navigate ,useNavigate } from 'react-router-dom';
 import './Navbar.css';
 const Homepage=()=>{
 const navigate = useNavigate();
+
+
   const clearSession=(e)=>{
       e.preventDefault();
     sessionStorage.removeItem("token")
@@ -38,11 +40,18 @@ const navigate = useNavigate();
           <NavLink className="nav-link custom-text" to='/help'>Help</NavLink>
         </li>
       </ul>
-      { sessionStorage.getItem("token") ? <button className='btn btn-danger ms-3' onClick={clearSession}>Logout</button> :
+      { sessionStorage.getItem("token") ? 
+      <div>
+        <NavLink className="btn btn-primary" to={`/dashboard/patient/sumit`}>
+               Dashboard
+             </NavLink>
+        <button className='btn btn-danger ms-3' onClick={clearSession}>Logout</button>
+      </div> :
          <div class="dropdown me-5 ms-5">
             <button class="btn btn-primary dropdown-toggle me-3 button-custom" data-bs-toggle="dropdown" aria-expanded="false">
             Login
              </button>
+             
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><Link class="dropdown-item" to="/login/patient">Patient</Link></li>
                 <li><Link class="dropdown-item" to="/login/doctor">Doctor</Link></li>
